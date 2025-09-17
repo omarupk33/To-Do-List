@@ -1,0 +1,8 @@
+We need to slice the project into three chunks. header, footer, and contnet are them. 
+
+Then we need to fill each one with potential elements we may need and leave space for future ones.
+
+We do the basic layout. It's essential to leave space for later elements and creativity options later on.
+
+We focus on the logic now. We should have a functional to do list logic and then impliment it successfully
+

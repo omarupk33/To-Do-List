@@ -50,6 +50,7 @@ header{
 
 #to_do_container{
   border: 2px solid firebrick;
+  overflow: scroll;
 }
 
 footer{

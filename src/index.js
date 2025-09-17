@@ -109,7 +109,49 @@ to_do_list.style.width = '1000px'
 to_do_list.id = 'to_do_container'
 to_do_list.style.background = 'red'
 
+// default task
+class Task{
+      // This mess should be delt with 
+      dueDate = 'date'
+      priority = 0
+      constructor(title, description){
+      this.title = title
+      // this.description = description
+      }
+      created(){
+            console.log(`The task ${this.title} is created`)
+      }
 
+      modify(){
+            console.log(`The task ${this.title} is ready for modifition`)
+      }
+
+      add_task(){
+            const task_list = document.createElement('li')
+            task_list.className = 'task_list'
+
+            let task_form = document.createElement('form')
+            task_form.id = 'task_form'
+
+            let description = document.createElement('input')
+            // description.type = ''
+            let description_label = document.createElement('label')
+                description_label.textContent = 'Description: '
+            description.id = 'descripe_task'
+            description_label.for = 'descripe_task'
+
+            task_form.appendChild(description_label)
+
+            task_form.appendChild(description)
+
+            // task_form.textContent = this.title
+            
+            task_list.appendChild(task_form)
+
+            return task_list
+      }
+}
+// to_do_list.appendChild(task1)
 // appendning
 main_form.appendChild(search_bar)
 main_form.appendChild(submit_search_bar)
@@ -132,13 +174,6 @@ footer.appendChild(lisence)
 
 // something is wrong and that's annoying!
 new_task_btn.addEventListener('click', ()=>{
-      const input_user = prompt('The task is called: ', 'task')
-      // const task_user = prompt("The task's content is: ", 'empty')
-      
-      let list_element = document.createElement('li')
-
-      list_element = `${input_user}`
-      // list_element.textContent = `${task_user}`
-
-      to_do_list.appendChild(list_element)
+      let task1 = new Task('hello', 'how are you?')
+      to_do_list.appendChild(task1.add_task())
 })
