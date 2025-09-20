@@ -68,85 +68,114 @@ main_form.className = 'main_form'
 
 //  Search Bar
 const search_bar = document.createElement('label')
-search_bar.style.height = '40px' 
-search_bar.style.width = '40px'
-search_bar.id = 'search_bar'
-search_bar.for = 'submit_search_bar'
-search_bar.textContent = 'Search: '
-search_bar.style.background = 'green'
+      search_bar.style.height = '40px' 
+      search_bar.style.width = '40px'
+      search_bar.id = 'search_bar'
+      search_bar.for = 'submit_search_bar'
+      search_bar.textContent = 'Search: '
+      search_bar.style.background = 'green'
 
 // search bar btn
 const submit_search_bar = document.createElement('input')
-submit_search_bar.style.height = '40px' 
-submit_search_bar.style.width = '400px'
-submit_search_bar.style.marginRight = '100px'
-submit_search_bar.type = 'text'
-submit_search_bar.id = 'submit_search_bar'
-submit_search_bar.style.background = 'blue'
+      submit_search_bar.style.height = '40px' 
+      submit_search_bar.style.width = '400px'
+      submit_search_bar.style.marginRight = '100px'
+      submit_search_bar.type = 'text'
+      submit_search_bar.id = 'submit_search_bar'
+      submit_search_bar.style.background = 'blue'
 
 
 // A new task label
 const make_a_new_task = document.createElement('label')
-make_a_new_task.style.height = '40px' 
-make_a_new_task.style.width = '40px'
-make_a_new_task.id = 'new_task'
-make_a_new_task.for = 'new_task_btn'
-make_a_new_task.textContent = 'New Task: '
-make_a_new_task.style.background = 'azure'
+      make_a_new_task.style.height = '40px' 
+      make_a_new_task.style.width = '40px'
+      make_a_new_task.id = 'new_task'
+      make_a_new_task.for = 'new_task_btn'
+      make_a_new_task.textContent = 'New Task: '
+      make_a_new_task.style.background = 'azure'
 // Its button
 const new_task_btn = document.createElement('input')
-new_task_btn.style.height = '40px' 
-new_task_btn.style.width = '40px'
-new_task_btn.type = 'button'
-new_task_btn.id = 'new_task_btn'
-new_task_btn.style.background = 'azure'
+      new_task_btn.style.height = '40px' 
+      new_task_btn.style.width = '40px'
+      new_task_btn.type = 'button'
+      new_task_btn.id = 'new_task_btn'
+      new_task_btn.style.background = 'azure'
 
 
 // Main list of tasks
 let to_do_list = document.createElement('ul')
-to_do_list.style.height = '500px' 
-to_do_list.style.width = '1000px'
-to_do_list.id = 'to_do_container'
-to_do_list.style.background = 'red'
+      to_do_list.style.height = '500px' 
+      to_do_list.style.width = '1000px'
+      to_do_list.id = 'to_do_container'
+      to_do_list.style.background = 'gray'
 
 // default task
 class Task{
-      // This mess should be delt with 
+
       dueDate = 'date'
       priority = 0
-      constructor(title, description){
+
+      constructor(title){
       this.title = title
-      // this.description = description
-      }
-      created(){
-            console.log(`The task ${this.title} is created`)
       }
 
-      modify(){
-            console.log(`The task ${this.title} is ready for modifition`)
+      create_input(named, type = 'text'){
+      // Should create an input function that makes input for me 
+      let block = document.createElement('div')
+      block.className = 'task_block'
+
+      let input = document.createElement('input')
+      let label = document.createElement('label')
+
+      input.type = type
+      input.className = 'task_input'
+      input.id= named.toLowerCase()
+      if(input.type === 'text'){input.maxLength = '100'}
+
+      label.textContent = `${named}: `
+      label.className = 'task_label'
+      label.for = named
+
+      block.appendChild(label)
+      block.appendChild(input)
+
+      return block
+      }
+
+      create_form(){
+      let task_form = document.createElement('form')
+      task_form.id = 'task_form'
+
+      const title = this.create_input('Title')
+      const description = this.create_input('Details')
+      const checkBox = this.create_input('Editable', 'checkbox')
+      
+      task_form.appendChild(title)
+      task_form.appendChild(description)
+      task_form.appendChild(checkBox)
+
+      return task_form
+      }
+
+      pop_up_form(){
+      //      Here is where we can pop up a form by covering it in a div layer
+            const pop_up_container = document.createElement('div')
+            pop_up_container.id = 'pop_up'
+
+            let form = this.create_form()
+
+            pop_up_container.appendChild(form)  
+            
+            return pop_up_container
       }
 
       add_task(){
             const task_list = document.createElement('li')
             task_list.className = 'task_list'
 
-            let task_form = document.createElement('form')
-            task_form.id = 'task_form'
-
-            let description = document.createElement('input')
-            // description.type = ''
-            let description_label = document.createElement('label')
-                description_label.textContent = 'Description: '
-            description.id = 'descripe_task'
-            description_label.for = 'descripe_task'
-
-            task_form.appendChild(description_label)
-
-            task_form.appendChild(description)
-
             // task_form.textContent = this.title
             
-            task_list.appendChild(task_form)
+            // task_list.appendChild(task_form)
 
             return task_list
       }
@@ -174,6 +203,7 @@ footer.appendChild(lisence)
 
 // something is wrong and that's annoying!
 new_task_btn.addEventListener('click', ()=>{
-      let task1 = new Task('hello', 'how are you?')
-      to_do_list.appendChild(task1.add_task())
+      let task1 = new Task('hello', 'how are you?').pop_up_form()
+      task1.className = 'active'
+      to_do_list.appendChild(task1)
 })

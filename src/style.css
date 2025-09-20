@@ -42,10 +42,24 @@ header{
 }
 
 
-.main_form{
-  background-color: bisque;
+#task_form > .block{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
 
+
+#pop_up{
+  display: none;
+}
+
+#pop_up.active{
+  background-color: yellowgreen;
+
+  display: flex;
+  height: 200px;
+  width: 400px;
+}
 
 
 #to_do_container{
