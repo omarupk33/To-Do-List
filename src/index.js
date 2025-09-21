@@ -147,12 +147,28 @@ class Task{
       task_form.id = 'task_form'
 
       const title = this.create_input('Title')
-      const description = this.create_input('Details')
+      const description = this.create_input('Descrption')
       const checkBox = this.create_input('Editable', 'checkbox')
+
+
+      let textArea = document.createElement('textarea')
+      textArea.id = 'textArea'
+      textArea.placeholder = 'More details(Optional)...'
+      textArea.rows = '10'
+      textArea.maxLength = '200'
+
+      let close_pop_up = document.createElement('button')
+      close_pop_up.textContent = 'Save'
+      close_pop_up.backgroundColor = '#032E66'
+
+
       
       task_form.appendChild(title)
       task_form.appendChild(description)
       task_form.appendChild(checkBox)
+
+      task_form.appendChild(textArea)
+      task_form.appendChild(close_pop_up)
 
       return task_form
       }
@@ -164,7 +180,12 @@ class Task{
 
             let form = this.create_form()
 
-            pop_up_container.appendChild(form)  
+
+            
+
+            pop_up_container.appendChild(form)
+
+
             
             return pop_up_container
       }
@@ -172,10 +193,6 @@ class Task{
       add_task(){
             const task_list = document.createElement('li')
             task_list.className = 'task_list'
-
-            // task_form.textContent = this.title
-            
-            // task_list.appendChild(task_form)
 
             return task_list
       }
