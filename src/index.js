@@ -173,6 +173,13 @@ class Task{
       return task_form
       }
 
+      show_to_user(){
+      const div = document.createElement('div')
+      const name = document.createElement('h2')
+      const simple_description = document.createElement('p')
+      const detailed_description = document.createElement('p')
+      }
+
       pop_up_form(){
       //      Here is where we can pop up a form by covering it in a div layer
             const pop_up_container = document.createElement('div')
