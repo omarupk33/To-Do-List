@@ -188,8 +188,6 @@ class Task{
             let form = this.create_form()
 
 
-            
-
             pop_up_container.appendChild(form)
 
 

@@ -33,7 +33,6 @@ header{
 }
 
 
-
 .content{
   background-color: #8298C6;
   flex:0 0 70%;
@@ -45,9 +44,19 @@ header{
 
 #task_form > .block{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: baseline;
 }
+
+
+#task_form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
 
 
 #pop_up{
@@ -56,13 +65,11 @@ header{
 
 #pop_up.active{
   background-color: #032E66;
-
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   height: 400px;
   width: 400px;
 }
-
 
 
 #textArea{
