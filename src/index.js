@@ -153,6 +153,7 @@ class Task{
 
       let textArea = document.createElement('textarea')
       textArea.id = 'textArea'
+      textArea.className = 'task_input'
       textArea.placeholder = 'More details.....'
       textArea.rows = '10'
       textArea.maxLength = '200'
@@ -161,6 +162,7 @@ class Task{
       textArea_label.textContent = 'Details(Optional): ' 
 
       let close_pop_up = document.createElement('button')
+      close_pop_up.type = 'submit'
       close_pop_up.textContent = 'Save'
       close_pop_up.backgroundColor = '#032E66'
 
@@ -173,6 +175,17 @@ class Task{
       task_form.appendChild(textArea_label)
       task_form.appendChild(textArea)
       task_form.appendChild(close_pop_up)
+
+      // let allInputs = document.querySelectorAll('.task_input')
+
+      task_form.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+            event.preventDefault(); 
+            console.log('Enter key pressed in input without reloading!');
+      }
+      })
+
+      
 
       return task_form
       }
@@ -230,9 +243,13 @@ footer.appendChild(lisence)
 
 // Functionality 
 
+
+
 // something is wrong and that's annoying!
 new_task_btn.addEventListener('click', ()=>{
       let task1 = new Task('hello', 'how are you?').pop_up_form()
       task1.className = 'active'
       to_do_list.appendChild(task1)
 })
+
+
