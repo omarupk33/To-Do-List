@@ -53,10 +53,8 @@ header{
 #task_form{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+   justify-content: space-around;
 }
-
-
 
 
 #pop_up{
@@ -67,6 +65,7 @@ header{
   background-color: #032E66;
   display: flex;
   justify-content: space-between;
+justify-content: center;
   height: 400px;
   width: 400px;
 }

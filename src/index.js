@@ -153,9 +153,12 @@ class Task{
 
       let textArea = document.createElement('textarea')
       textArea.id = 'textArea'
-      textArea.placeholder = 'More details(Optional)...'
+      textArea.placeholder = 'More details.....'
       textArea.rows = '10'
       textArea.maxLength = '200'
+      let textArea_label = document.createElement('label')
+      textArea_label.for = 'textArea'
+      textArea_label.textContent = 'Details(Optional): ' 
 
       let close_pop_up = document.createElement('button')
       close_pop_up.textContent = 'Save'
@@ -167,6 +170,7 @@ class Task{
       task_form.appendChild(description)
       task_form.appendChild(checkBox)
 
+      task_form.appendChild(textArea_label)
       task_form.appendChild(textArea)
       task_form.appendChild(close_pop_up)
 
@@ -174,8 +178,11 @@ class Task{
       }
 
       show_to_user(){
-      const div = document.createElement('div')
+      const show_container = document.createElement('div')
+      show_container.id = 'form_container'
+
       const name = document.createElement('h2')
+      const nametextContent = title 
       const simple_description = document.createElement('p')
       const detailed_description = document.createElement('p')
       }
