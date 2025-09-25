@@ -161,20 +161,16 @@ class Task{
       textArea_label.for = 'textArea'
       textArea_label.textContent = 'Details(Optional): ' 
 
-      let close_pop_up = document.createElement('button')
-      close_pop_up.type = 'submit'
-      close_pop_up.textContent = 'Save'
-      close_pop_up.backgroundColor = '#032E66'
+      let submit = this.save_form()
 
 
-      
       task_form.appendChild(title)
       task_form.appendChild(description)
       task_form.appendChild(checkBox)
 
       task_form.appendChild(textArea_label)
       task_form.appendChild(textArea)
-      task_form.appendChild(close_pop_up)
+      task_form.appendChild(submit)
 
       // let allInputs = document.querySelectorAll('.task_input')
 
@@ -190,6 +186,18 @@ class Task{
       return task_form
       }
 
+      save_form(){
+      let submit_button = document.createElement('button')
+      submit_button.type = 'submit'
+      submit_button.textContent = 'Save'
+      
+      submit_button.addEventListener('click', ()=>{
+            let titles = document.querySelectorAll('input') 
+            console.log(titles)
+      })
+
+      return submit_button
+      }
       show_to_user(){
       const show_container = document.createElement('div')
       show_container.id = 'form_container'
