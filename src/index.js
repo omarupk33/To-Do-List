@@ -206,6 +206,13 @@ class Task{
       const nametextContent = title 
       const simple_description = document.createElement('p')
       const detailed_description = document.createElement('p')
+
+      show_container.appendChild(name)
+      show_container.appendChild(nametextContent)
+      show_container.appendChild(simple_description)
+      show_container.appendChild(detailed_description)
+
+      return show_container
       }
 
       pop_up_form(){
