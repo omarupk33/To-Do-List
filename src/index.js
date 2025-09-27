@@ -130,6 +130,7 @@ class Task{
       input.type = type
       input.className = 'task_input'
       input.id= named.toLowerCase()
+      if(input.type === 'text'){input.required = true}
       if(input.type === 'text'){input.maxLength = '100'}
 
       label.textContent = `${named}: `
@@ -155,6 +156,7 @@ class Task{
       textArea.id = 'textArea'
       textArea.className = 'task_input'
       textArea.placeholder = 'More details.....'
+      textArea.style.resize = 'none'
       textArea.rows = '10'
       textArea.maxLength = '200'
       let textArea_label = document.createElement('label')
@@ -163,7 +165,6 @@ class Task{
 
       let submit = this.save_form()
 
-
       task_form.appendChild(title)
       task_form.appendChild(description)
       task_form.appendChild(checkBox)
@@ -171,17 +172,19 @@ class Task{
       task_form.appendChild(textArea_label)
       task_form.appendChild(textArea)
       task_form.appendChild(submit)
+      
 
-      // let allInputs = document.querySelectorAll('.task_input')
+      
 
       task_form.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
-            event.preventDefault(); 
-            console.log('Enter key pressed in input without reloading!');
+          event.preventDefault();
+
+          let inputs = document.querySelectorAll('.task_input')
+          console.log(inputs)
       }
       })
 
-      
 
       return task_form
       }
@@ -190,42 +193,41 @@ class Task{
       let submit_button = document.createElement('button')
       submit_button.type = 'submit'
       submit_button.textContent = 'Save'
-      
+
+      const formInputs = document.querySelectorAll('input, textarea')
+
       submit_button.addEventListener('click', ()=>{
-            let titles = document.querySelectorAll('input') 
-            console.log(titles)
+            console.log(formInputs)
       })
 
       return submit_button
       }
+      //  For later
       show_to_user(){
-      const show_container = document.createElement('div')
-      show_container.id = 'form_container'
+            const show_container = document.createElement('div')
+            show_container.id = 'form_container'
 
-      const name = document.createElement('h2')
-      const nametextContent = title 
-      const simple_description = document.createElement('p')
-      const detailed_description = document.createElement('p')
+            const name = document.createElement('h2')
+            const nametextContent = title 
+            const simple_description = document.createElement('p')
+            const detailed_description = document.createElement('p')
 
-      show_container.appendChild(name)
-      show_container.appendChild(nametextContent)
-      show_container.appendChild(simple_description)
-      show_container.appendChild(detailed_description)
+            show_container.appendChild(name)
+            show_container.appendChild(nametextContent)
+            show_container.appendChild(simple_description)
+            show_container.appendChild(detailed_description)
 
-      return show_container
+            return show_container
       }
 
+
       pop_up_form(){
-      //      Here is where we can pop up a form by covering it in a div layer
             const pop_up_container = document.createElement('div')
             pop_up_container.id = 'pop_up'
 
             let form = this.create_form()
 
-
             pop_up_container.appendChild(form)
-
-
             
             return pop_up_container
       }
