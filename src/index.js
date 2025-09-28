@@ -109,7 +109,7 @@ let to_do_list = document.createElement('ul')
       to_do_list.id = 'to_do_container'
       to_do_list.style.background = 'gray'
 
-// default task
+// default task | I should move to a new js file them import here
 class Task{
 
       dueDate = 'date'
@@ -180,8 +180,12 @@ class Task{
       if (event.key === 'Enter') {
           event.preventDefault();
 
-          let inputs = document.querySelectorAll('.task_input')
-          console.log(inputs)
+      // well, we can do much with this. One of the things I want to do is adding required to some inputs
+      if(event.target.value.trim() === ''){
+          event.target.style.backgroundColor = 'red'}
+      else{
+          event.target.style.backgroundColor = 'green'
+          event.target.blur()}
       }
       })
 
@@ -197,13 +201,14 @@ class Task{
       const formInputs = document.querySelectorAll('input, textarea')
 
       submit_button.addEventListener('click', ()=>{
-            console.log(formInputs)
+           
       })
 
       return submit_button
       }
       //  For later
       show_to_user(){
+            // Need to do something about everything
             const show_container = document.createElement('div')
             show_container.id = 'form_container'
 
@@ -232,9 +237,10 @@ class Task{
             return pop_up_container
       }
 
-      add_task(){
+      add_task(input){
             const task_list = document.createElement('li')
             task_list.className = 'task_list'
+            task_list.textContent = input.value
 
             return task_list
       }
