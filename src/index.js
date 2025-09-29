@@ -104,15 +104,14 @@ const new_task_btn = document.createElement('input')
 
 
 // Main list of tasks
-let to_do_list = document.createElement('ul')
-      to_do_list.style.height = '500px' 
-      to_do_list.style.width = '1000px'
-      to_do_list.id = 'to_do_container'
-      to_do_list.style.background = 'gray'
+let  to_do_list = document.createElement('ul')
+     to_do_list.style.height = '500px' 
+     to_do_list.style.width = '1000px'
+     to_do_list.id = 'to_do_container'
+     to_do_list.style.background = 'gray'
 
-// default task | I should move to a new js file them import here
 
-// to_do_list.appendChild(task1)
+
 // appendning
 main_form.appendChild(search_bar)
 main_form.appendChild(submit_search_bar)
@@ -131,11 +130,8 @@ lisence.textContent = 'The Odin Project'
 // appendning
 footer.appendChild(lisence)
 
-// Functionality 
 
 
-
-// something is wrong and that's annoying!
 new_task_btn.addEventListener('click', ()=>{
       let task1 = new Task('hello', 'how are you?').pop_up_form()
       task1.className = 'active'

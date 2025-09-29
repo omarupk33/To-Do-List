@@ -9,7 +9,7 @@ export class Task{
       }
 
       create_input(named, type = 'text'){
-      // Should create an input function that makes input for me 
+
       let block = document.createElement('div')
       block.className = 'task_block'
 
@@ -40,7 +40,7 @@ export class Task{
       const description = this.create_input('Descrption')
       const checkBox = this.create_input('Editable', 'checkbox')
 
-
+      
       let textArea = document.createElement('textarea')
       textArea.id = 'textArea'
       textArea.className = 'task_input'
