@@ -137,8 +137,8 @@ new_task_btn.addEventListener('click', ()=>{
       task1.className = 'active'
       to_do_list.appendChild(task1)
 
-      let save_btn = document.getElementById('save_btn')
-      save_btn.addEventListener('click', ()=>{
-            task1.classList.remove('active')
-      })
+      // let save_btn = document.getElementById('save_btn')
+      // save_btn.addEventListener('click', ()=>{
+
+      // })
 })
