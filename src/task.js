@@ -65,34 +65,23 @@ export class Task{
       task_form.appendChild(submit)
 
 
-
       // Enter interactions for inputs
       task_form.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
           event.preventDefault();
 
-      // well, we can do much with this. One of the things I want to do is adding required to some inputs
-      if(event.target.value.trim() === ''){
-          event.target.style.backgroundColor = 'red'}
+      if(event.target.value.trim() === '' && event.target.required === true){
+         event.target.style.backgroundColor = 'red'}
       else{
-          event.target.style.backgroundColor = 'green'
-          event.target.blur()}
-          storage[`${event.target.id}`] = `${event.target.value}`
-
-
-
-            console.log(storage)
-
+         event.target.style.backgroundColor = '#17A7FF'
+         event.target.blur()}
+         storage[`${event.target.id}`] = `${event.target.value}`
+          
+          console.log(storage)
       }
       })
 
 
-      submit.addEventListener('click' ,()=>{
-      
-      const pop_off = document.getElementById('pop_up') 
-      pop_off.classList.remove('active')
-
-      })
 
       // Make sure to modifiy the code in regards of this change
       return {task_form, storage}
@@ -100,40 +89,45 @@ export class Task{
 
       save_form(){
       let submit_button = document.createElement('button')
-      // change to submit later on
+      // Maybe we don't need to change to submit later on
       submit_button.type = 'button'
       submit_button.textContent = 'Save'
       submit_button.id = 'save_btn'
+
+      // Save is only removing the first pop up form
+      // I want it to remove all pop up forms
+      submit_button.addEventListener('click' ,()=>{
+         const pop_off_collection = document.querySelectorAll('div.active') 
+         if (pop_off_collection.classList.contains('active'))
+         pop_off.classList.remove('active')
+      }
+      )
 
       return submit_button
       }
       //  For later
       show_to_user(){
             // Need to do something about everything
+
+            let storage = this.create_form().storage
+
             const show_container = document.createElement('div')
             show_container.id = 'form_container'
 
             const title = document.createElement('h2')
-            const description = document.createElement('p')
+            const simple_description = document.createElement('p')
+            const detailed_description = document.createElement('p')
 
-            // Something is wrong here 
-            formInputs.forEach(element => {
-                  if (element.id === 'title'){
-                  title.textContent = element.value
-                  show_container.appendChild(title)
+            if (storage){
+                  title.textContent = storage.title
+                  simple_description = storage.description
+                  detailed_description = storage.textArea
+            }
 
-                  }
-
-                  else if (element.id === 'checkbox'){
-                  console.log('checkbox spotted')
-                  }
-
-                  else{
-                  description.textContent = element.value
-                  show_container.appendChild(description)
-                  }
-            });
-
+            show_container.appendChild(title)
+            show_container.appendChild(simple_description)
+            show_container.appendChild(detailed_description)
+            
             return show_container
       }
 
@@ -142,17 +136,21 @@ export class Task{
             const pop_up_container = document.createElement('div')
             pop_up_container.id = 'pop_up'
 
-            let form = this.create_form()
+            let form = this.create_form().task_form
 
             pop_up_container.appendChild(form)
             
             return pop_up_container
       }
 
-      add_task(input){
+      add_task(){
+
             const task_list = document.createElement('li')
             task_list.className = 'task_list'
-            task_list.textContent = input.value
+
+            let show_container = this.show_to_user()
+
+            task_list.appendChild(show_container)
 
             return task_list
       }

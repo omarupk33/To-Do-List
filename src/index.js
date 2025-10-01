@@ -83,7 +83,7 @@ const submit_search_bar = document.createElement('input')
       submit_search_bar.style.marginRight = '100px'
       submit_search_bar.type = 'text'
       submit_search_bar.id = 'submit_search_bar'
-      submit_search_bar.style.background = 'blue'
+      submit_search_bar.style.background = '#17A7FF'
 
 
 // A new task label
@@ -135,10 +135,6 @@ footer.appendChild(lisence)
 new_task_btn.addEventListener('click', ()=>{
       let task1 = new Task('hello', 'how are you?').pop_up_form()
       task1.className = 'active'
-      to_do_list.appendChild(task1)
+      content.appendChild(task1)
 
-      // let save_btn = document.getElementById('save_btn')
-      // save_btn.addEventListener('click', ()=>{
-
-      // })
 })

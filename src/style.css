@@ -26,7 +26,7 @@ header{
   display: flex;
   flex-direction: row;
   background-color: #08205F;
-  /* border: 2px solid pink; */
+
   flex: 0 0 10%;
   justify-content: space-around;
   align-items: center;
@@ -36,7 +36,6 @@ header{
 .content{
   background-color: #8298C6;
   flex:0 0 70%;
-  /* border: 2px solid orange; */
   display: grid;
   place-content: center;
 }
@@ -63,10 +62,13 @@ header{
 
 #pop_up.active{
   background-color: #032E66;
+  border: dashed 2px #10466f;
   display: flex;
+  position: absolute;
+  right: 500px;
   justify-content: space-between;
-justify-content: center;
-  height: 400px;
+  justify-content: center;
+  height: 500px;
   width: 400px;
 }
 
@@ -81,14 +83,12 @@ justify-content: center;
 }
 
 #to_do_container{
-  /* border: 2px solid firebrick; */
   overflow: scroll;
 }
 
 footer{
   background-color: #08205F;
   flex: 0 0 10%;
-  /* border: 2px solid gray; */
   display: flex;
   justify-content: center;
 }
