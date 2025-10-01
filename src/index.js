@@ -134,7 +134,6 @@ footer.appendChild(lisence)
 
 new_task_btn.addEventListener('click', ()=>{
       let task1 = new Task('hello', 'how are you?').pop_up_form()
-      task1.className = 'active'
       content.appendChild(task1)
 
 })

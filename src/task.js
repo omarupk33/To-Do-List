@@ -87,36 +87,18 @@ export class Task{
       return {task_form, storage}
       }
 
-      save_form(){
-      let submit_button = document.createElement('button')
-      // Maybe we don't need to change to submit later on
-      submit_button.type = 'button'
-      submit_button.textContent = 'Save'
-      submit_button.id = 'save_btn'
-
-      // Save is only removing the first pop up form
-      // I want it to remove all pop up forms
-      submit_button.addEventListener('click' ,()=>{
-         const pop_off_collection = document.querySelectorAll('div.active') 
-         if (pop_off_collection.classList.contains('active'))
-         pop_off.classList.remove('active')
-      }
-      )
-
-      return submit_button
-      }
       //  For later
       show_to_user(){
-            // Need to do something about everything
+            // Need to do something about everything       
 
-            let storage = this.create_form().storage
+            let storage = this.create_form().storage    
 
-            const show_container = document.createElement('div')
+            let show_container = document.createElement('div')
             show_container.id = 'form_container'
 
-            const title = document.createElement('h2')
-            const simple_description = document.createElement('p')
-            const detailed_description = document.createElement('p')
+            let title = document.createElement('h2')
+            let simple_description = document.createElement('p')
+            let detailed_description = document.createElement('p')
 
             if (storage){
                   title.textContent = storage.title
@@ -135,6 +117,8 @@ export class Task{
       pop_up_form(){
             const pop_up_container = document.createElement('div')
             pop_up_container.id = 'pop_up'
+            pop_up_container.className = 'active'
+            
 
             let form = this.create_form().task_form
 
@@ -143,9 +127,29 @@ export class Task{
             return pop_up_container
       }
 
-      add_task(){
+      save_form(){
+      let submit_button = document.createElement('button')
+      // Maybe we don't need to change to submit later on
+      submit_button.type = 'button'
+      submit_button.textContent = 'Save'
+      submit_button.id = 'save_btn'
 
-            const task_list = document.createElement('li')
+      // Save is only removing the first pop up form
+      // I want it to remove all pop up forms
+      submit_button.addEventListener('click' ,()=>{
+         const pop_off = document.querySelector('.active')
+         pop_off.classList.remove('active')
+
+      // The last thing to care about here
+            // this.show_to_user()
+      })
+
+      return submit_button
+      }
+
+      add_task(){
+            
+            let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
             let show_container = this.show_to_user()
