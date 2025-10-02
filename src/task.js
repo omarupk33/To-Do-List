@@ -88,29 +88,43 @@ export class Task{
       }
 
       //  For later
-      show_to_user(){
-            // Need to do something about everything       
+      show_to_user(){    
 
             let storage = this.create_form().storage    
 
-            let show_container = document.createElement('div')
-            show_container.id = 'form_container'
+            // let content_elements = document.createElement('div')
+            // content_elements.id = 'form_container'
 
             let title = document.createElement('h2')
             let simple_description = document.createElement('p')
             let detailed_description = document.createElement('p')
 
-            if (storage){
-                  title.textContent = storage.title
-                  simple_description = storage.description
-                  detailed_description = storage.textArea
-            }
-
-            show_container.appendChild(title)
-            show_container.appendChild(simple_description)
-            show_container.appendChild(detailed_description)
+            title.textContent = storage.title
+            simple_description.textContent = storage.description
+            detailed_description.textContent = storage.textArea
             
-            return show_container
+
+            // content_elements.appendChild(title)
+            // content_elements.appendChild(simple_description)
+            // content_elements.appendChild(detailed_description)
+            
+            return {title, simple_description, detailed_description}
+      }
+
+      add_task(){
+            
+            let task_list = document.createElement('li')
+            task_list.className = 'task_list'
+
+            let ul = document.querySelector('ul')
+
+            let content_elements = this.show_to_user()
+            // Something should be changed here!
+            task_list.appendChild(content_elements.title)
+            task_list.appendChild(content_elements.simple_description)
+            task_list.appendChild(content_elements.detailed_description)
+
+            ul.appendChild(task_list)
       }
 
 
@@ -141,21 +155,11 @@ export class Task{
          pop_off.classList.remove('active')
 
       // The last thing to care about here
-            // this.show_to_user()
+            this.add_task()
       })
 
       return submit_button
       }
 
-      add_task(){
-            
-            let task_list = document.createElement('li')
-            task_list.className = 'task_list'
 
-            let show_container = this.show_to_user()
-
-            task_list.appendChild(show_container)
-
-            return task_list
-      }
 }
