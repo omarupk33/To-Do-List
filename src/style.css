@@ -86,6 +86,13 @@ header{
   overflow: scroll;
 }
 
+
+content_elements > *{
+  background-color: aqua;
+  color: white;
+  font-size: larger;
+}
+
 footer{
   background-color: #08205F;
   flex: 0 0 10%;

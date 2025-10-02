@@ -2,6 +2,8 @@ export class Task{
 
       dueDate = 'date'
       priority = 0
+      // We should try out putting the storage as it renew itself
+      // after saving button is clicked
 
       constructor(title){
       this.title = title
@@ -92,8 +94,8 @@ export class Task{
 
             let storage = this.create_form().storage    
 
-            // let content_elements = document.createElement('div')
-            // content_elements.id = 'form_container'
+            let content_elements = document.createElement('div')
+            content_elements.id = 'content_elements'
 
             let title = document.createElement('h2')
             let simple_description = document.createElement('p')
@@ -102,13 +104,13 @@ export class Task{
             title.textContent = storage.title
             simple_description.textContent = storage.description
             detailed_description.textContent = storage.textArea
-            
+      
 
-            // content_elements.appendChild(title)
-            // content_elements.appendChild(simple_description)
-            // content_elements.appendChild(detailed_description)
+            content_elements.appendChild(title)
+            content_elements.appendChild(simple_description)
+            content_elements.appendChild(detailed_description)
             
-            return {title, simple_description, detailed_description}
+            return content_elements
       }
 
       add_task(){
@@ -120,9 +122,9 @@ export class Task{
 
             let content_elements = this.show_to_user()
             // Something should be changed here!
-            task_list.appendChild(content_elements.title)
-            task_list.appendChild(content_elements.simple_description)
-            task_list.appendChild(content_elements.detailed_description)
+
+
+            task_list.appendChild(content_elements)
 
             ul.appendChild(task_list)
       }
