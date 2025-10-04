@@ -2,12 +2,6 @@ export class Task{
 
       dueDate = 'date'
       priority = 0
-      // We should try out putting the storage as it renew itself
-      // after saving button is clicked
-
-      constructor(title){
-      this.title = title
-      }
 
       create_input(named, type = 'text'){
 
@@ -35,6 +29,8 @@ export class Task{
 
       create_form(){
       let storage = {}
+
+      let {title_element, simple_description, detailed_description} = this.show_to_user()
       
       let task_form = document.createElement('form')
       task_form.id = 'task_form'
@@ -56,7 +52,6 @@ export class Task{
 
       let submit = this.save_form()
 
-
       
       task_form.appendChild(title)
       task_form.appendChild(description)
@@ -69,7 +64,7 @@ export class Task{
 
       // Enter interactions for inputs
       task_form.addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter'){
           event.preventDefault();
 
       if(event.target.value.trim() === '' && event.target.required === true){
@@ -77,52 +72,46 @@ export class Task{
       else{
          event.target.style.backgroundColor = '#17A7FF'
          event.target.blur()}
-         storage[`${event.target.id}`] = `${event.target.value}`
-          
+
+         storage[event.target.id] = event.target.value
+
+      
           console.log(storage)
       }
       })
 
+      title_element.textContent = storage.title
+      simple_description.textContent = storage.description
+      simple_description.textContent = storage.textArea
 
-
+      this.add_task()
       // Make sure to modifiy the code in regards of this change
-      return {task_form, storage}
+      return task_form
       }
 
-      //  For later
+      //  For later 
       show_to_user(){    
 
-            let storage = this.create_form().storage    
+            let title_element = document.createElement('h2')
+            let simple_description = document.createElement('p')
+            let detailed_description = document.createElement('p')
+            
+            return {title_element, simple_description, detailed_description}
+      }
+
+      add_task(title_element, simple_description, detailed_description){
 
             let content_elements = document.createElement('div')
             content_elements.id = 'content_elements'
 
-            let title = document.createElement('h2')
-            let simple_description = document.createElement('p')
-            let detailed_description = document.createElement('p')
-
-            title.textContent = storage.title
-            simple_description.textContent = storage.description
-            detailed_description.textContent = storage.textArea
-      
-
-            content_elements.appendChild(title)
-            content_elements.appendChild(simple_description)
-            content_elements.appendChild(detailed_description)
-            
-            return content_elements
-      }
-
-      add_task(){
-            
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
             let ul = document.querySelector('ul')
 
-            let content_elements = this.show_to_user()
-            // Something should be changed here!
-
+            content_elements.appendChild(title_element)
+            content_elements.appendChild(simple_description)
+            content_elements.appendChild(detailed_description)
 
             task_list.appendChild(content_elements)
 
@@ -136,7 +125,7 @@ export class Task{
             pop_up_container.className = 'active'
             
 
-            let form = this.create_form().task_form
+            let form = this.create_form()
 
             pop_up_container.appendChild(form)
             
@@ -157,7 +146,7 @@ export class Task{
          pop_off.classList.remove('active')
 
       // The last thing to care about here
-            this.add_task()
+            // this.add_task()
       })
 
       return submit_button

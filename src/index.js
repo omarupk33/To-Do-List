@@ -133,7 +133,7 @@ footer.appendChild(lisence)
 
 
 new_task_btn.addEventListener('click', ()=>{
-      let task1 = new Task('hello', 'how are you?').pop_up_form()
+      let task1 = new Task().pop_up_form()
       content.appendChild(task1)
 
 })
