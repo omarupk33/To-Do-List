@@ -72,6 +72,7 @@ export class Task{
       else{
          event.target.style.backgroundColor = '#17A7FF'
          event.target.blur()}
+         
 
          storage[event.target.id] = event.target.value
 
@@ -80,9 +81,9 @@ export class Task{
       }
       })
 
-      title_element.textContent = storage.title
-      simple_description.textContent = storage.description
-      simple_description.textContent = storage.textArea
+      title_element.textContent = storage['title']
+      simple_description.textContent = storage['description']
+      simple_description.textContent = storage['textArea']
 
       this.add_task()
       // Make sure to modifiy the code in regards of this change
