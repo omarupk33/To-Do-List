@@ -28,9 +28,7 @@ export class Task{
       }
 
       create_form(){
-      let storage = {}
-
-      let {title_element, simple_description, detailed_description} = this.show_to_user()
+      let storage = []
       
       let task_form = document.createElement('form')
       task_form.id = 'task_form'
@@ -50,7 +48,7 @@ export class Task{
       textArea_label.for = 'textArea'
       textArea_label.textContent = 'Details(Optional): ' 
 
-      let submit = this.save_form()
+      // let submit = this.save_form()
 
       
       task_form.appendChild(title)
@@ -59,7 +57,7 @@ export class Task{
 
       task_form.appendChild(textArea_label)
       task_form.appendChild(textArea)     
-      task_form.appendChild(submit)
+ 
 
 
       // Enter interactions for inputs
@@ -72,47 +70,42 @@ export class Task{
       else{
          event.target.style.backgroundColor = '#17A7FF'
          event.target.blur()}
-         
 
-         storage[event.target.id] = event.target.value
+         storage.push(event.target.value)
 
       
           console.log(storage)
       }
       })
 
-      title_element.textContent = storage['title']
-      simple_description.textContent = storage['description']
-      simple_description.textContent = storage['textArea']
 
-      this.add_task()
-      // Make sure to modifiy the code in regards of this change
-      return task_form
+
+      return {task_form, storage}
       }
 
-      //  For later 
-      show_to_user(){    
+      make_an_element(content){    
 
-            let title_element = document.createElement('h2')
-            let simple_description = document.createElement('p')
-            let detailed_description = document.createElement('p')
-            
-            return {title_element, simple_description, detailed_description}
+      let element = document.createElement('p')
+      element.textContent = content
+      element.className = 'element'
+      return element
+
       }
 
-      add_task(title_element, simple_description, detailed_description){
+      add_task(title, simple_description, detailed_description){
 
             let content_elements = document.createElement('div')
             content_elements.id = 'content_elements'
+
 
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
             let ul = document.querySelector('ul')
 
-            content_elements.appendChild(title_element)
-            content_elements.appendChild(simple_description)
-            content_elements.appendChild(detailed_description)
+            content_elements.appendChild(this.make_an_element(title))
+            content_elements.appendChild(this.make_an_element(simple_description))
+            content_elements.appendChild(this.make_an_element(detailed_description))
 
             task_list.appendChild(content_elements)
 
@@ -126,7 +119,7 @@ export class Task{
             pop_up_container.className = 'active'
             
 
-            let form = this.create_form()
+            let form = this.create_form().task_form
 
             pop_up_container.appendChild(form)
             
@@ -135,19 +128,22 @@ export class Task{
 
       save_form(){
       let submit_button = document.createElement('button')
-      // Maybe we don't need to change to submit later on
+
+      let {task_form, storage} = this.create_form()
+
+      // let task_form = document.getElementById('#task_form')
+      task_form.appendChild(submit_button)
+
       submit_button.type = 'button'
       submit_button.textContent = 'Save'
       submit_button.id = 'save_btn'
 
-      // Save is only removing the first pop up form
-      // I want it to remove all pop up forms
+
       submit_button.addEventListener('click' ,()=>{
          const pop_off = document.querySelector('.active')
          pop_off.classList.remove('active')
+         this.add_task(storage[0], storage[1], storage[2])
 
-      // The last thing to care about here
-            // this.add_task()
       })
 
       return submit_button
