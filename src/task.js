@@ -39,7 +39,7 @@ export class Task{
 
       
       let textArea = document.createElement('textarea')
-      textArea.id = 'textArea'
+      textArea.id = 'details'
       textArea.className = 'task_input'
       textArea.placeholder = 'More details.....'
       textArea.rows = '10'
@@ -48,19 +48,26 @@ export class Task{
       textArea_label.for = 'textArea'
       textArea_label.textContent = 'Details(Optional): ' 
 
-      // let submit = this.save_form()
 
-      
+      let submit_button = document.createElement('button')
+      submit_button.type = 'button'
+      submit_button.textContent = 'Save'
+      submit_button.id = 'save_btn'
+
+
       task_form.appendChild(title)
       task_form.appendChild(description)
       task_form.appendChild(checkBox)
 
       task_form.appendChild(textArea_label)
-      task_form.appendChild(textArea)     
- 
+      task_form.appendChild(textArea)   
+      
+      task_form.appendChild(submit_button)
+      
 
 
-      // Enter interactions for inputs
+      // Well, the order is messed up
+      // It's based on the first input you put in
       task_form.addEventListener('keypress', function(event) {
       if (event.key === 'Enter'){
           event.preventDefault();
@@ -71,7 +78,7 @@ export class Task{
          event.target.style.backgroundColor = '#17A7FF'
          event.target.blur()}
 
-         storage.push(event.target.value)
+         storage.push(event.target)
 
       
           console.log(storage)
@@ -80,16 +87,23 @@ export class Task{
 
 
 
-      return {task_form, storage}
+      submit_button.addEventListener('click' ,()=>{
+         const pop_off = document.querySelector('.active')
+         pop_off.classList.remove('active')
+         this.add_task(storage[0], storage[1], storage[2])
+
+      })
+
+
+      return task_form
       }
 
       make_an_element(content){    
 
       let element = document.createElement('p')
-      element.textContent = content
+      element.textContent = `${content.id.toUpperCase()}: ${content.value}`
       element.className = 'element'
       return element
-
       }
 
       add_task(title, simple_description, detailed_description){
@@ -101,7 +115,7 @@ export class Task{
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
-            let ul = document.querySelector('ul')
+            let ol = document.querySelector('ol')
 
             content_elements.appendChild(this.make_an_element(title))
             content_elements.appendChild(this.make_an_element(simple_description))
@@ -109,7 +123,7 @@ export class Task{
 
             task_list.appendChild(content_elements)
 
-            ul.appendChild(task_list)
+            ol.appendChild(task_list)
       }
 
 
@@ -119,35 +133,12 @@ export class Task{
             pop_up_container.className = 'active'
             
 
-            let form = this.create_form().task_form
+            let form = this.create_form()
 
             pop_up_container.appendChild(form)
             
             return pop_up_container
       }
 
-      save_form(){
-      let submit_button = document.createElement('button')
-
-      let {task_form, storage} = this.create_form()
-
-      // let task_form = document.getElementById('#task_form')
-      task_form.appendChild(submit_button)
-
-      submit_button.type = 'button'
-      submit_button.textContent = 'Save'
-      submit_button.id = 'save_btn'
-
-
-      submit_button.addEventListener('click' ,()=>{
-         const pop_off = document.querySelector('.active')
-         pop_off.classList.remove('active')
-         this.add_task(storage[0], storage[1], storage[2])
-
-      })
-
-      return submit_button
-      }
-
-
 }
+

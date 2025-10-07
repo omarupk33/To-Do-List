@@ -73,7 +73,7 @@ header{
 }
 
 
-#textArea{
+textArea{
   height: fit-content;
   width: fit-content;
   resize: none;
@@ -87,10 +87,10 @@ header{
 }
 
 
-content_elements > *{
-  background-color: aqua;
-  color: white;
-  font-size: larger;
+#content_elements{
+  display: flex;
+  justify-content: space-between;
+  background-color: #08205F;
 }
 
 footer{

@@ -104,7 +104,7 @@ const new_task_btn = document.createElement('input')
 
 
 // Main list of tasks
-let  to_do_list = document.createElement('ul')
+let  to_do_list = document.createElement('ol')
      to_do_list.style.height = '500px' 
      to_do_list.style.width = '1000px'
      to_do_list.id = 'to_do_container'
