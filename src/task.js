@@ -28,22 +28,23 @@ export class Task{
       }
 
       create_form(){
-      let storage = []
+      let storage = ['', '', '']
       
       let task_form = document.createElement('form')
       task_form.id = 'task_form'
 
       const title = this.create_input('Title')
-      const description = this.create_input('Descrption')
-      const checkBox = this.create_input('Editable', 'checkbox')
+      const description = this.create_input('Description')
 
       
       let textArea = document.createElement('textarea')
       textArea.id = 'details'
+      textArea.name = 'details'
+
       textArea.className = 'task_input'
       textArea.placeholder = 'More details.....'
       textArea.rows = '10'
-      textArea.maxLength = '200'
+      textArea.maxLength = '80'
       let textArea_label = document.createElement('label')
       textArea_label.for = 'textArea'
       textArea_label.textContent = 'Details(Optional): ' 
@@ -57,7 +58,6 @@ export class Task{
 
       task_form.appendChild(title)
       task_form.appendChild(description)
-      task_form.appendChild(checkBox)
 
       task_form.appendChild(textArea_label)
       task_form.appendChild(textArea)   
@@ -78,13 +78,25 @@ export class Task{
          event.target.style.backgroundColor = '#17A7FF'
          event.target.blur()}
 
-         storage.push(event.target)
 
-      
-          console.log(storage)
+         if(event.target.id === 'title'){
+         storage.splice(0, 1, event.target)
+         }
+         else if (event.target.id === 'save_btn'){
+            return ''
+         }
+
+         else if (event.target.id === 'description'){
+         storage.splice(1, 1, event.target)
+         }
+
+         else{
+         storage.splice(2, 1, event.target)
+         console.log(event.target.value)
+
+         }
       }
       })
-
 
 
       submit_button.addEventListener('click' ,()=>{
@@ -101,7 +113,8 @@ export class Task{
       make_an_element(content){    
 
       let element = document.createElement('p')
-      element.textContent = `${content.id.toUpperCase()}: ${content.value}`
+
+      element.textContent = `${content.id.charAt(0).toUpperCase() + content.id.slice(1)}: ${content.value}`
       element.className = 'element'
       return element
       }

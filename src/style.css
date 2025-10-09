@@ -18,7 +18,8 @@ body{
   flex-direction: column;
   justify-content: space-between;
   background-color:#17A7FF;
-  border: 2px solid white;
+  overflow: hidden;
+  color:white;
 }
 
 
@@ -34,7 +35,7 @@ header{
 
 
 .content{
-  background-color: #8298C6;
+  background-color: #0b204c;
   flex:0 0 70%;
   display: grid;
   place-content: center;
@@ -83,15 +84,24 @@ textArea{
 }
 
 #to_do_container{
-  overflow: scroll;
+  overflow-y: scroll;
+  scrollbar-color: #08205F #ffffff; /* Red thumb, light gray track */
+  scrollbar-width: thin; /* or auto, or none */
 }
 
 
 #content_elements{
   display: flex;
-  justify-content: space-between;
-  background-color: #08205F;
+  flex-direction: column ;
+  justify-content: space-around;
+  border: dashed 2px white;
 }
+
+
+.element > {
+background-color: #032E66;
+}
+
 
 footer{
   background-color: #08205F;
@@ -102,4 +112,8 @@ footer{
 
 #lisence{
   font-size: 2em;
+}
+
+li{
+
 }

@@ -74,7 +74,7 @@ const search_bar = document.createElement('label')
       search_bar.id = 'search_bar'
       search_bar.for = 'submit_search_bar'
       search_bar.textContent = 'Search: '
-      search_bar.style.background = 'green'
+      // search_bar.style.background = 'violet'
 
 // search bar btn
 const submit_search_bar = document.createElement('input')
@@ -93,23 +93,22 @@ const make_a_new_task = document.createElement('label')
       make_a_new_task.id = 'new_task'
       make_a_new_task.for = 'new_task_btn'
       make_a_new_task.textContent = 'New Task: '
-      make_a_new_task.style.background = 'azure'
+      // make_a_new_task.style.background = 'blue'
 // Its button
 const new_task_btn = document.createElement('input')
       new_task_btn.style.height = '40px' 
       new_task_btn.style.width = '40px'
       new_task_btn.type = 'button'
       new_task_btn.id = 'new_task_btn'
-      new_task_btn.style.background = 'azure'
-
+      new_task_btn.style.background = 'black'
+      new_task_btn.style.border = 'white solid 2px'
 
 // Main list of tasks
 let  to_do_list = document.createElement('ol')
      to_do_list.style.height = '500px' 
      to_do_list.style.width = '1000px'
      to_do_list.id = 'to_do_container'
-     to_do_list.style.background = 'gray'
-
+     to_do_list.style.background = 'black'
 
 
 // appendning
