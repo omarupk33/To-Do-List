@@ -102,7 +102,6 @@ textArea{
 background-color: #032E66;
 }
 
-
 footer{
   background-color: #08205F;
   flex: 0 0 10%;
@@ -112,8 +111,4 @@ footer{
 
 #lisence{
   font-size: 2em;
-}
-
-li{
-
 }
