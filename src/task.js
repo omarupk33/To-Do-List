@@ -1,7 +1,7 @@
+import { set } from "lodash"
+
 export class Task{
 
-      dueDate = 'date'
-      priority = 0
 
       create_input(named, type = 'text'){
 
@@ -56,6 +56,19 @@ export class Task{
       submit_button.id = 'save_btn'
 
 
+      // Need some work after getting a real storage
+      let close_btn = document.createElement('button')
+      close_btn.textContent = 'close'
+      close_btn.style.background = 'red'
+      close_btn.id  = 'close_btn' 
+
+      close_btn.addEventListener('click', ()=>{
+      const pop_off = document.querySelector('.active')
+      pop_off.classList.remove('active') 
+      })
+
+      task_form.appendChild(close_btn)
+
       task_form.appendChild(title)
       task_form.appendChild(description)
 
@@ -63,23 +76,29 @@ export class Task{
       task_form.appendChild(textArea)   
       
       task_form.appendChild(submit_button)
+
       
 
 
       // Well, the order is messed up
       // It's based on the first input you put in
       task_form.addEventListener('keypress', function(event) {
+
       if (event.key === 'Enter'){
           event.preventDefault();
 
       if(event.target.value.trim() === '' && event.target.required === true){
          event.target.style.backgroundColor = 'red'}
       else{
-         event.target.style.backgroundColor = '#17A7FF'
+
+         if(event.target.id !== 'save_btn'){event.target.style.backgroundColor = '#17A7FF'}
+
+
          event.target.blur()}
 
 
          if(event.target.id === 'title'){
+         
          storage.splice(0, 1, event.target)
          }
          else if (event.target.id === 'save_btn'){
@@ -99,11 +118,13 @@ export class Task{
       })
 
 
-      submit_button.addEventListener('click' ,()=>{
-         const pop_off = document.querySelector('.active')
-         pop_off.classList.remove('active')
-         this.add_task(storage[0], storage[1], storage[2])
+      submit_button.addEventListener('keypress' ,(event)=>{
 
+      if (event.key === 'Enter'){
+      const pop_off = document.querySelector('.active')
+      pop_off.classList.remove('active')
+      this.add_task(storage[0], storage[1], storage[2])
+      }
       })
 
 
@@ -121,20 +142,32 @@ export class Task{
 
       add_task(title, simple_description, detailed_description){
 
-            let content_elements = document.createElement('div')
-            content_elements.id = 'content_elements'
 
+
+            let row1 = document.createElement('div')
+            row1.id = 'row1'
+
+            let row2 = document.createElement('div')
+            row2.id = 'row2'
 
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
             let ol = document.querySelector('ol')
 
-            content_elements.appendChild(this.make_an_element(title))
-            content_elements.appendChild(this.make_an_element(simple_description))
-            content_elements.appendChild(this.make_an_element(detailed_description))
+            // should add it to the list
+            let date = new Date()
 
-            task_list.appendChild(content_elements)
+
+            row1.appendChild(this.make_an_element(title))
+            row1.appendChild(date)
+
+            row2.appendChild(this.make_an_element(simple_description))
+            row2.appendChild(this.make_an_element(detailed_description))
+
+            task_list.appendChild(row1)
+            task_list.appendChild(row2)
+
 
             ol.appendChild(task_list)
       }

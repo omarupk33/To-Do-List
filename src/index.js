@@ -108,7 +108,7 @@ let  to_do_list = document.createElement('ol')
      to_do_list.style.height = '500px' 
      to_do_list.style.width = '1000px'
      to_do_list.id = 'to_do_container'
-     to_do_list.style.background = 'black'
+     to_do_list.style.background = '#10466f'
 
 
 // appendning
