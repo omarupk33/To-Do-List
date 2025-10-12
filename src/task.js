@@ -136,7 +136,7 @@ export class Task{
       let element = document.createElement('p')
 
       element.textContent = `${content.id.charAt(0).toUpperCase() + content.id.slice(1)}: ${content.value}`
-      element.className = 'element'
+      element.className = 'grid_child'
       return element
       }
 
@@ -144,11 +144,8 @@ export class Task{
 
 
 
-            let row1 = document.createElement('div')
-            row1.id = 'row1'
-
-            let row2 = document.createElement('div')
-            row2.id = 'row2'
+            let content_element = document.createElement('div')
+            content_element.id = 'content_element'
 
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
@@ -158,15 +155,26 @@ export class Task{
             // should add it to the list
             let date = new Date()
 
+            let date_element = document.createElement('span')
+            date_element.className = 'grid_child'
+            date_element.textContent = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
 
-            row1.appendChild(this.make_an_element(title))
-            row1.appendChild(date)
 
-            row2.appendChild(this.make_an_element(simple_description))
-            row2.appendChild(this.make_an_element(detailed_description))
 
-            task_list.appendChild(row1)
-            task_list.appendChild(row2)
+            let change_content = document.createElement('button')
+            change_content.style.background = 'blue'
+            change_content.textContent = 'Change'
+
+
+
+            content_element.appendChild(this.make_an_element(title))
+            content_element.appendChild(date_element)
+
+            content_element.appendChild(this.make_an_element(simple_description))
+            content_element.appendChild(this.make_an_element(detailed_description))
+            content_element.appendChild(change_content)
+
+            task_list.appendChild(content_element)
 
 
             ol.appendChild(task_list)

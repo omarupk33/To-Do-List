@@ -84,22 +84,47 @@ textArea{
 
 #to_do_container{
   overflow-y: scroll;
-  scrollbar-color: #08205F #ffffff; /* Red thumb, light gray track */
-  scrollbar-width: thin; /* or auto, or none */
+  scrollbar-color: #08205F #ffffff;
+  scrollbar-width: thin;
 }
 
 
-#content_elements{
-  display: flex;
-  flex-direction: column ;
+#content_element{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-around;
   border: dashed 2px white;
 }
 
 
-.element > {
-background-color: #032E66;
+.grid_child:nth-of-type(1){
+
 }
+
+.grid_child:nth-of-type(2){
+  
+}
+
+.grid_child:nth-of-type(3){
+  
+}
+
+.grid_child:nth-of-type(4){
+  
+}
+
+.grid_child:nth-of-type(5){
+  
+}
+
+.grid_child:nth-of-type(6){
+  
+}
+
+
+/* .element > {
+background-color: #032E66;
+} */
 
 footer{
   background-color: #08205F;
