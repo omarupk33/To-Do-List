@@ -91,40 +91,62 @@ textArea{
 
 #content_element{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-around;
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
+
+
+  place-items: center;
   border: dashed 2px white;
 }
 
 
 .grid_child:nth-of-type(1){
-
+  grid-row: 1;
+  grid-column: 1;
+  place-self: start;
+  padding-left: 20px ;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 .grid_child:nth-of-type(2){
+  grid-row: 1;
+  grid-column: 3;
+
+  align-self: start;
+  padding-left: 20px ;
+  font-size: 20px;
+  font-weight: bolder;
+
+
+  border: black 2px solid;
   
 }
 
 .grid_child:nth-of-type(3){
-  
+  grid-row: 2;
+  grid-column: 1;
+  border: red 2px solid;
+
 }
 
 .grid_child:nth-of-type(4){
-  
+  grid-row: 2;
+  grid-column: 2;
+    border: yellow 2px solid;
+
 }
 
 .grid_child:nth-of-type(5){
-  
+  grid-row: 3;
+  grid-column: 1;
 }
 
-.grid_child:nth-of-type(6){
-  
+.button_in_grid{
+  grid-row: 2;
+  grid-column: 3;
+  border: orange 2px solid;
 }
-
-
-/* .element > {
-background-color: #032E66;
-} */
 
 footer{
   background-color: #08205F;

@@ -111,9 +111,8 @@ export class Task{
 
          else{
          storage.splice(2, 1, event.target)
-         console.log(event.target.value)
 
-         }
+      }
       }
       })
 
@@ -127,22 +126,23 @@ export class Task{
       }
       })
 
-
       return task_form
       }
 
-      make_an_element(content){    
-
+      make_an_element(content){  
+            
       let element = document.createElement('p')
+      if(!content.value === false){
+            element.textContent = `${content.id.charAt(0).toUpperCase()
+            + content.id.slice(1)}: ${content.value}`}
 
-      element.textContent = `${content.id.charAt(0).toUpperCase() + content.id.slice(1)}: ${content.value}`
-      element.className = 'grid_child'
-      return element
+      else{ element.textContent = `Details: No Details`}
+      
+            element.className = 'grid_child'
+            return element
       }
 
       add_task(title, simple_description, detailed_description){
-
-
 
             let content_element = document.createElement('div')
             content_element.id = 'content_element'
@@ -155,16 +155,15 @@ export class Task{
             // should add it to the list
             let date = new Date()
 
-            let date_element = document.createElement('span')
+            let date_element = document.createElement('p')
             date_element.className = 'grid_child'
             date_element.textContent = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
-
 
 
             let change_content = document.createElement('button')
             change_content.style.background = 'blue'
             change_content.textContent = 'Change'
-
+            change_content.className = 'button_in_grid'
 
 
             content_element.appendChild(this.make_an_element(title))
