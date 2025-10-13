@@ -44,7 +44,7 @@ export class Task{
       textArea.className = 'task_input'
       textArea.placeholder = 'More details.....'
       textArea.rows = '10'
-      textArea.maxLength = '80'
+      textArea.maxLength = '200'
       let textArea_label = document.createElement('label')
       textArea_label.for = 'textArea'
       textArea_label.textContent = 'Details(Optional): ' 
