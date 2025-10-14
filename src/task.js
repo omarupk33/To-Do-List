@@ -1,4 +1,5 @@
 import { set } from "lodash"
+import { checked } from "./checked_logic"
 
 export class Task{
 
@@ -15,7 +16,7 @@ export class Task{
       input.className = 'task_input'
       input.id= named.toLowerCase()
       if(input.type === 'text'){input.required = true}
-      if(input.type === 'text'){input.maxLength = '100'}
+      if(input.type === 'text'){input.maxLength = '50'}
 
       label.textContent = `${named}: `
       label.className = 'task_label'
@@ -133,10 +134,10 @@ export class Task{
             
       let element = document.createElement('p')
       if(!content.value === false){
-            element.textContent = `${content.id.charAt(0).toUpperCase()
-            + content.id.slice(1)}: ${content.value}`}
+      element.textContent = `${content.value}`
+      }
 
-      else{ element.textContent = `Details: No Details`}
+      else{ element.textContent = `None`}
       
             element.className = 'grid_child'
             return element
@@ -173,7 +174,13 @@ export class Task{
             content_element.appendChild(this.make_an_element(detailed_description))
             content_element.appendChild(change_content)
 
+            let check_box = checked(content_element)
+
+            content_element.appendChild(check_box)
+
+
             task_list.appendChild(content_element)
+
 
 
             ol.appendChild(task_list)
