@@ -18,7 +18,7 @@ body{
   flex-direction: column;
   justify-content: space-between;
   background-color:#17A7FF;
-  overflow: hidden;
+  /* overflow: hidden; */
   color:white;
 }
 
@@ -74,8 +74,6 @@ header{
 }
 
 textArea{
-  height: fit-content;
-  width: fit-content;
   resize: none;
   max-width: fit-content;
   max-height: fit-content;
@@ -91,19 +89,17 @@ textArea{
 
 #content_element{
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-
-  max-height: 200px;
-
-  place-items: center;
-  border: dashed 2px white;
+  margin: 50px;
+  /* place-items: center; */
+  border: dashed 1px white;
 }
 
 #check_input{
-  grid-row: 1;
+  grid-row: 2;
   grid-column: 3;
-  margin-top: 60px;
+  place-self: center;
   height: 20px;
   width: 20px;
 }
@@ -111,14 +107,13 @@ textArea{
 
 
 .grid_child:nth-of-type(1){
-  grid-row: 1;
-  grid-column: 1;
+  grid-row: 1/ stretch;
+  grid-column:1;
 
-  width: 250px;
+  width: 100%;
   height: 100%;
 
-  place-self: start;
-  padding: 10px ;
+  place-self: stretch;
   overflow-wrap: break-word;
 
   font-size: 1.4em;
@@ -130,7 +125,7 @@ textArea{
 }
 
 .grid_child:nth-of-type(2){
-  grid-row: 1;
+  grid-row: 1/ stretch;
   grid-column: 3;
 
   align-self: start;
@@ -144,23 +139,21 @@ textArea{
   box-shadow:0px 0px 20px #8298C6;
   border: white 2px solid;
   border-radius: 50px; 
-
-
   
 }
 
 
 .grid_child:nth-of-type(4){
-  grid-row:2;
-  grid-column: 1;
+  grid-row:2/3;
+  grid-column: 2;
   border: white 2px solid;
   background-color: rgb(43, 61, 105);
   text-align: center;
   overflow-wrap: break-word;
   box-shadow:0px 0px 20px black;
 
-  width: 340px;
-  height: 150px;
+  height:100%;
+  width:100%;
 }
 
 
@@ -170,8 +163,6 @@ textArea{
   border: white 2px solid;
   background-color: #8298C6;
   color: black;
-  width: 100%;
-  height:20%;
   overflow-wrap: break-word;
   overflow: hidden;
   box-shadow:0px 0px 20px black;
@@ -180,15 +171,11 @@ textArea{
   padding: 10px ;
   font-size: 1.4em;
   text-decoration: underline;
-
-
 }
 
 
-
-
 .button_in_grid{
-  grid-row: 2;
+  grid-row: 3;
   grid-column: 3;
   border: orange 2px solid;
 }
