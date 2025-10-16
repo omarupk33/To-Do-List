@@ -143,6 +143,26 @@ export class Task{
             return element
       }
 
+      change_btn(){
+
+           let change_content = document.createElement('button')
+            change_content.style.background = 'blue'
+            change_content.textContent = 'Change'
+            change_content.className = 'button_in_grid'
+
+            let pop_up = document.getElementById('pop_up')
+
+
+            // It creates a new form with the old info
+                change_content.addEventListener("click", ()=>{
+                  if(!pop_up.classList.contains('active'))
+                  pop_up.className = 'active'
+                })
+
+
+            return change_content
+      }
+
       add_task(title, simple_description, detailed_description){
 
             let content_element = document.createElement('div')
@@ -161,11 +181,7 @@ export class Task{
             date_element.textContent = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
 
 
-            let change_content = document.createElement('button')
-            change_content.style.background = 'blue'
-            change_content.textContent = 'Change'
-            change_content.className = 'button_in_grid'
-
+            let change_content = this.change_btn()
 
             content_element.appendChild(this.make_an_element(title))
             content_element.appendChild(date_element)
