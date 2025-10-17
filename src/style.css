@@ -183,7 +183,10 @@ textArea{
 .button_in_grid{
   grid-row: 3;
   grid-column: 3;
-  border: orange 2px solid;
+
+  background-color: #032E66;
+  border: white 2px solid;
+  box-shadow: 0px 0px 15px black;
 }
 
 footer{
