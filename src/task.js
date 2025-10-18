@@ -61,11 +61,14 @@ export class Task{
       let close_btn = document.createElement('button')
       close_btn.textContent = 'close'
       close_btn.style.background = 'red'
+      close_btn.type = 'button'
       close_btn.id  = 'close_btn' 
 
-      close_btn.addEventListener('click', ()=>{
+      close_btn.addEventListener('keypress', (event)=>{
+      if(event.key === 'Enter'){
       const pop_off = document.querySelector('.active')
-      pop_off.classList.remove('active') 
+      pop_off.classList.remove('active')
+      }
       })
 
       task_form.appendChild(close_btn)
@@ -79,10 +82,6 @@ export class Task{
       task_form.appendChild(submit_button)
 
       
-
-
-      // Well, the order is messed up
-      // It's based on the first input you put in
       task_form.addEventListener('keypress', function(event) {
 
       if (event.key === 'Enter'){
@@ -92,7 +91,8 @@ export class Task{
          event.target.style.backgroundColor = 'red'}
       else{
 
-         if(event.target.id !== 'save_btn'){event.target.style.backgroundColor = '#17A7FF'}
+         if(event.target.type !== 'button'){
+            event.target.style.backgroundColor = '#17A7FF'}
 
 
          event.target.blur()}

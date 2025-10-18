@@ -53,7 +53,6 @@ const logo_block = document.createElement('div')
       logo_block.style.backgroundColor = 'purple'
 
 // appendning
-
 header.appendChild(profile_block)
 header.appendChild(edting_options)
 header.appendChild(logo_block)
@@ -74,7 +73,6 @@ const search_bar = document.createElement('label')
       search_bar.id = 'search_bar'
       search_bar.for = 'submit_search_bar'
       search_bar.textContent = 'Search: '
-      // search_bar.style.background = 'violet'
 
 // search bar btn
 const submit_search_bar = document.createElement('input')
@@ -93,7 +91,7 @@ const make_a_new_task = document.createElement('label')
       make_a_new_task.id = 'new_task'
       make_a_new_task.for = 'new_task_btn'
       make_a_new_task.textContent = 'New Task: '
-      // make_a_new_task.style.background = 'blue'
+
 // Its button
 const new_task_btn = document.createElement('input')
       new_task_btn.style.height = '40px' 
