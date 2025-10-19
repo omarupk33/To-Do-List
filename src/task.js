@@ -208,7 +208,6 @@ export class Task{
             task_list.appendChild(content_element)
 
 
-
             ol.appendChild(task_list)
       }
 
@@ -228,3 +227,4 @@ export class Task{
 
 }
 
+ 
