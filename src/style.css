@@ -34,12 +34,14 @@ header{
 }
 
 
-.content{
+#project_content{
   background-color: #0b204c;
   flex:0 0 70%;
   display: grid;
   place-content: center;
 }
+
+
 
 
 #task_form > .block{
@@ -92,8 +94,7 @@ textArea{
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 50px;
-  /* place-items: center; */
-  border: dashed 1px white;
+  background-color: antiquewhite;
 }
 
 #check_input{
@@ -184,7 +185,7 @@ textArea{
   grid-row: 3;
   grid-column: 3;
 
-  background-color: #032E66;
+  background-color: #8298C6;
   border: white 2px solid;
   box-shadow: 0px 0px 15px black;
 }

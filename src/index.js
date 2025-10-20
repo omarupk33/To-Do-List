@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import {Task} from './task.js'
+import { Project } from './projects.js';
 import Icon from './icon.png';
 // function component() {
 //   const element = document.createElement('div');
@@ -66,6 +67,7 @@ const main_form = document.createElement('form')
 main_form.className = 'main_form'
 
 
+
 //  Search Bar
 const search_bar = document.createElement('label')
       search_bar.style.height = '40px' 
@@ -109,14 +111,12 @@ let  to_do_list = document.createElement('ol')
      to_do_list.style.background = '#10466f'
 
 
-// appendning
+// appending
 main_form.appendChild(search_bar)
 main_form.appendChild(submit_search_bar)
 main_form.appendChild(make_a_new_task)
 main_form.appendChild(new_task_btn)
 
-content.appendChild(main_form)
-content.appendChild(to_do_list)
 
 // footer
 const footer = document.querySelector("footer")
@@ -129,8 +129,21 @@ footer.appendChild(lisence)
 
 
 
+// Project 
+let project_container = new Project()
+
 new_task_btn.addEventListener('click', ()=>{
       let task1 = new Task().pop_up_form()
-      content.appendChild(task1)
+      project_container.appendChild(task1)
 
 })
+
+// Should give project UI
+
+
+// project_container.appendChild(main_form)
+// project_container.appendChild(to_do_list)
+
+
+content.appendChild(project_container)
+
