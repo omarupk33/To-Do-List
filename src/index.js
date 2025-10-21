@@ -63,6 +63,11 @@ header.appendChild(logo_block)
 // content
 const content = document.querySelector('.content')
 
+const project_container = document.createElement('div')
+      project_container.id = 'project_container'
+
+content.appendChild(project_container)
+
 const main_form = document.createElement('form') 
 main_form.className = 'main_form'
 
@@ -130,20 +135,20 @@ footer.appendChild(lisence)
 
 
 // Project 
-let project_container = new Project()
+let project_content = new Project()
 
 new_task_btn.addEventListener('click', ()=>{
       let task1 = new Task().pop_up_form()
-      project_container.appendChild(task1)
+      project_content.appendChild(task1)
 
 })
 
 // Should give project UI
 
 
-// project_container.appendChild(main_form)
-// project_container.appendChild(to_do_list)
+// project_content.appendChild(main_form)
+// project_content.appendChild(to_do_list)
 
 
-content.appendChild(project_container)
+content.appendChild(project_content)
 

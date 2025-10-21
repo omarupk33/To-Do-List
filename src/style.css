@@ -34,6 +34,14 @@ header{
 }
 
 
+#project_container{
+  height: 500px;
+  width: 500px;
+  background-color: #8298C6;
+}
+
+
+
 #project_content{
   background-color: #0b204c;
   flex:0 0 70%;
