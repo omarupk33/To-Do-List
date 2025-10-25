@@ -1,4 +1,5 @@
 import { Task } from "./task"
+import { create_input } from "./create_input"
 export class Project{
     constructor(){
 
@@ -10,10 +11,7 @@ export class Project{
         make_project_button.textContent = 'Make a new Project'
 
         make_project_button.addEventListener('click', ()=>{
-            // this.project_form()
-
-            let task = new Task().pop_up_form()
-            create_base.appendChild(task)
+        // create_base.appendChild()
 
         })
 
@@ -37,10 +35,6 @@ export class Project{
 
     project_form(){
 
-
-
-
-        
         let create_base = document.getElementById('make_base')
         this.add_project(create_base)
     }
