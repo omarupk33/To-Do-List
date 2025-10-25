@@ -143,10 +143,8 @@ new_task_btn.addEventListener('click', ()=>{
 
 })
 
-// Should give project UI
-
-// project_content.appendChild(main_form)
-// project_content.appendChild(to_do_list)
+// Error here
+// project_content.add_project()
 
 
 content.appendChild(project_content)
