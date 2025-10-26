@@ -160,7 +160,7 @@ export class Task{
 
             let ol = document.querySelector('ol')
 
-            // should add it to the list
+
             let date = new Date()
 
             let date_element = document.createElement('p')
