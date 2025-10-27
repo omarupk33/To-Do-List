@@ -10,7 +10,9 @@ export class Project{
         make_project_button.textContent = 'Make a new Project'
 
         make_project_button.addEventListener('click', ()=>{
-            this.project_form()
+            let form = this.project_form()
+
+            form.classList = 'active'
         })
 
      let create_base = document.createElement('div')
@@ -23,24 +25,54 @@ export class Project{
     return project_container
     }
 
-    add_project(base){
-        let project = document.createElement('div')
-        project.id = 'project'
-        project.style.background = 'red'
-        project.style.height = '100px'
-        base.appendChild(project)
+    add_project(title, simple_description, detailed_description){
+
+            let content_element = document.createElement('div')
+            content_element.id = 'content_element'
+
+            let task_list = document.createElement('li')
+            task_list.className = 'task_list'
+
+            let ol = document.querySelector('ol')
+
+
+            let date = new Date()
+
+            let date_element = document.createElement('p')
+            date_element.className = 'grid_child'
+            date_element.textContent = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
+
+
+            let change_content = this.change_btn(task_list)
+
+            content_element.appendChild(this.make_an_element(title))
+            content_element.appendChild(date_element)
+
+            content_element.appendChild(this.make_an_element(simple_description))
+            content_element.appendChild(this.make_an_element(detailed_description))
+            content_element.appendChild(change_content)
+
+            let check_box = checked(content_element)
+
+            content_element.appendChild(check_box)
+
+
+            task_list.appendChild(content_element)
+
+
+            ol.appendChild(task_list)
     }
 
     project_form(){
 
         let create_base = document.getElementById('make_base')
-        this.add_project(create_base)
+      //   this.add_project(create_base)
 
 
       let storage = ['', '', '']
       
       let form = document.createElement('form')
-      form.id = 'form'
+      form.id = 'project_form'
 
       const title = create_input('Title')
       const description = create_input('Description')
@@ -60,8 +92,7 @@ export class Project{
 
       close_btn.addEventListener('keypress', (event)=>{
       if(event.key === 'Enter'){
-      const pop_off = document.querySelector('.active')
-      pop_off.classList.remove('active')
+      form.classList.remove('active')
       }
       })
 
@@ -106,19 +137,23 @@ export class Project{
 
       }
       }
+
+
       })
 
 
       submit_button.addEventListener('keypress' ,(event)=>{
 
       if (event.key === 'Enter'){
-      const pop_off = document.querySelector('.active')
-      pop_off.classList.remove('active')
-      this.add_task(storage[0], storage[1], storage[2])
+
+      form.classList.remove('active')
+      this.add_project(storage[0], storage[1], storage[2])
       }
       })
 
       create_base.appendChild(form)
+
+      return form
     }
 
 }
