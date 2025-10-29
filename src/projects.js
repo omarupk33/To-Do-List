@@ -1,11 +1,14 @@
+import { add } from "lodash"
 import { create_input } from "./create_input"
-export class Project{
+import { Task } from "./task"
+export class Project extends Task{
     constructor(){
+    super()
 
     const project_container = document.createElement('div')
     project_container.id = 'project_container'
 
-     let make_project_button = document.createElement('button')
+    let make_project_button = document.createElement('button')
         make_project_button.id = 'make_project'
         make_project_button.textContent = 'Make a new Project'
 
@@ -25,7 +28,38 @@ export class Project{
     return project_container
     }
 
-    add_project(title, simple_description, detailed_description){
+      change_btn(list){
+
+         let change_content = document.createElement('button')
+         change_content.textContent = 'Change'
+         change_content.className = 'button_in_grid'
+
+         let form = document.getElementById('project_form')
+
+         let edit_btn = document.getElementById('save_btn')
+         let delete_btn = document.getElementById('close_btn')
+
+         
+
+         change_content.addEventListener("click", ()=>{
+
+         if(!form.classList.contains('active'))
+               edit_btn.textContent = 'Edit'
+               delete_btn.textContent = 'Delete'
+
+               form.className = 'active'
+               list.remove()
+         }
+
+         )
+
+
+         return change_content
+      }
+
+
+
+    add_project(title, description){
 
             let content_element = document.createElement('div')
             content_element.id = 'content_element'
@@ -33,8 +67,7 @@ export class Project{
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
-            let ol = document.querySelector('ol')
-
+            let ol = document.createElement('ol')
 
             let date = new Date()
 
@@ -45,28 +78,33 @@ export class Project{
 
             let change_content = this.change_btn(task_list)
 
+            let open_button = document.createElement('button')
+            open_button.id = 'open_button'
+            open_button.textContent = 'Open file'
+
+            open_button.addEventListener('click', ()=>{
+               // Focus here before learning how to use the localStorage
+            })
             content_element.appendChild(this.make_an_element(title))
             content_element.appendChild(date_element)
 
-            content_element.appendChild(this.make_an_element(simple_description))
-            content_element.appendChild(this.make_an_element(detailed_description))
+            content_element.appendChild(this.make_an_element(description))
             content_element.appendChild(change_content)
-
-            let check_box = checked(content_element)
-
-            content_element.appendChild(check_box)
-
+            content_element.appendChild(open_button)
 
             task_list.appendChild(content_element)
 
 
             ol.appendChild(task_list)
+
+            let create_base = document.getElementById('make_base')
+            create_base.appendChild(ol)
+
     }
 
     project_form(){
 
         let create_base = document.getElementById('make_base')
-      //   this.add_project(create_base)
 
 
       let storage = ['', '', '']
@@ -147,7 +185,7 @@ export class Project{
       if (event.key === 'Enter'){
 
       form.classList.remove('active')
-      this.add_project(storage[0], storage[1], storage[2])
+      this.add_project(storage[0], storage[1])
       }
       })
 

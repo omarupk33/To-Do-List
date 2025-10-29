@@ -24,39 +24,39 @@ import Icon from './icon.png';
 // document.body.appendChild(component());
 
 
-// Header
-const header = document.querySelector('.header')
+// // Header
+// const header = document.querySelector('.header')
 
 
-const profile_block = document.createElement('div')
-      profile_block.className = 'profile_block'   
-      profile_block.style.height = '20px'
-      profile_block.style.wdith = '20px'
-      profile_block.textContent = 'Default Text'
-      profile_block.style.backgroundColor = 'green'
-
-
-
-const edting_options = document.createElement('div')
-      edting_options.className = 'editing_options'
-      edting_options.textContent = 'Default Text'
-      edting_options.style.height = '20px'
-      edting_options.style.wdith = '20px'
-      edting_options.style.backgroundColor = 'yellow'
+// const profile_block = document.createElement('div')
+//       profile_block.className = 'profile_block'   
+//       profile_block.style.height = '20px'
+//       profile_block.style.wdith = '20px'
+//       profile_block.textContent = 'Default Text'
+//       profile_block.style.backgroundColor = 'green'
 
 
 
-const logo_block = document.createElement('div')
-      logo_block.className = 'logo_block'
-      logo_block.textContent = 'Default Text'
-      logo_block.style.height = '20px'
-      logo_block.style.wdith = '20px'
-      logo_block.style.backgroundColor = 'purple'
+// const edting_options = document.createElement('div')
+//       edting_options.className = 'editing_options'
+//       edting_options.textContent = 'Default Text'
+//       edting_options.style.height = '20px'
+//       edting_options.style.wdith = '20px'
+//       edting_options.style.backgroundColor = 'yellow'
 
-// appendning
-header.appendChild(profile_block)
-header.appendChild(edting_options)
-header.appendChild(logo_block)
+
+
+// const logo_block = document.createElement('div')
+//       logo_block.className = 'logo_block'
+//       logo_block.textContent = 'Default Text'
+//       logo_block.style.height = '20px'
+//       logo_block.style.wdith = '20px'
+//       logo_block.style.backgroundColor = 'purple'
+
+// // appendning
+// header.appendChild(profile_block)
+// header.appendChild(edting_options)
+// header.appendChild(logo_block)
 
 
 
@@ -142,9 +142,6 @@ new_task_btn.addEventListener('click', ()=>{
       project_content.appendChild(task1)
 
 })
-
-// Error here
-// project_content.add_project()
 
 
 content.appendChild(project_content)
