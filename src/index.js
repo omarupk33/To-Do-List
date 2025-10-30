@@ -69,7 +69,7 @@ const project_container = document.createElement('div')
 content.appendChild(project_container)
 
 const main_form = document.createElement('form') 
-main_form.className = 'main_form'
+main_form.id = 'main_form'
 
 
 

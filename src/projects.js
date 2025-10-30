@@ -80,10 +80,18 @@ export class Project extends Task{
 
             let open_button = document.createElement('button')
             open_button.id = 'open_button'
-            open_button.textContent = 'Open file'
+            open_button.textContent = 'Open File'
 
             open_button.addEventListener('click', ()=>{
                // Focus here before learning how to use the localStorage
+
+               let project_container = document.getElementById('project_container')
+
+               project_container.classList = 'hide'
+
+
+               let main_form = document.getElementById('main_form')
+
             })
             content_element.appendChild(this.make_an_element(title))
             content_element.appendChild(date_element)
