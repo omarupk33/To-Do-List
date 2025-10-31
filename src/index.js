@@ -89,3 +89,5 @@ new_task_btn.addEventListener('click', ()=>{
 
 
 content.appendChild(project_content)
+
+content.appendChild(task_container)

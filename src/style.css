@@ -33,7 +33,7 @@ header{
 }
 
 
-#project_container{
+#project_content{
   display: flex;
   background-color: #0b204c;
   flex-direction: column;
@@ -89,6 +89,13 @@ header{
   width: 400px;
 }
 
+
+#task_container{
+display: flex;
+background-color: #0b204c;
+height: 500px;
+width: 500px;
+}
 
 
 #task_form > .block{

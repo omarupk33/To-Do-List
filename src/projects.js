@@ -5,8 +5,8 @@ export class Project extends Task{
     constructor(){
     super()
 
-    const project_container = document.createElement('div')
-    project_container.id = 'project_container'
+    const project_content = document.createElement('div')
+    project_content.id = 'project_content'
 
     let make_project_button = document.createElement('button')
         make_project_button.id = 'make_project'
@@ -22,10 +22,10 @@ export class Project extends Task{
         create_base.id = 'make_base'
 
 
-        project_container.appendChild(make_project_button)
-        project_container.appendChild(create_base)
+        project_content.appendChild(make_project_button)
+        project_content.appendChild(create_base)
 
-    return project_container
+    return project_content
     }
 
       change_btn(list){
@@ -91,8 +91,10 @@ export class Project extends Task{
                let make_project_button = document.getElementById('make_project')
                make_project_button.classList = 'hide'
 
+               let content = document.getElementById('project_content')
+               let task_container = document.getElementById('task_container')
 
-               let task_container = document.getElementById('task_containers')
+               content.appendChild(task_container)
 
             })
             content_element.appendChild(this.make_an_element(title))
