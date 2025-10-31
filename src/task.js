@@ -57,7 +57,6 @@ export class Task{
       
       task_form.appendChild(submit_button)
 
-      
       task_form.addEventListener('keypress', function(event) {
 
       if (event.key === 'Enter'){
