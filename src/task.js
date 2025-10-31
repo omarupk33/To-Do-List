@@ -4,7 +4,6 @@ import { create_input } from "./create_input"
 
 export class Task{
 
-
       create_form(){
       let storage = ['', '', '']
       
@@ -131,7 +130,6 @@ export class Task{
             let edit_btn = document.getElementById('save_btn')
             let delete_btn = document.getElementById('close_btn')
 
-            
 
             change_content.addEventListener("click", ()=>{
 
@@ -198,8 +196,6 @@ export class Task{
             let form = this.create_form()
 
             pop_up_container.appendChild(form)
-            
             return pop_up_container
       }
-
 }

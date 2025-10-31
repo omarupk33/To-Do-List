@@ -2,62 +2,6 @@ import _ from 'lodash';
 import './style.css';
 import {Task} from './task.js'
 import { Project } from './projects.js';
-import Icon from './icon.png';
-// function component() {
-//   const element = document.createElement('div');
-
-//   // Lodash, now imported by this script
-//   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-// element.classList.add('hello');
-
-
-//  // Add the image to our existing div.
-//   const myIcon = new Image();
-//   myIcon.src = Icon;
-
-//   element.appendChild(myIcon);
-
-
-//   return element;
-// }
-
-// document.body.appendChild(component());
-
-
-// // Header
-// const header = document.querySelector('.header')
-
-
-// const profile_block = document.createElement('div')
-//       profile_block.className = 'profile_block'   
-//       profile_block.style.height = '20px'
-//       profile_block.style.wdith = '20px'
-//       profile_block.textContent = 'Default Text'
-//       profile_block.style.backgroundColor = 'green'
-
-
-
-// const edting_options = document.createElement('div')
-//       edting_options.className = 'editing_options'
-//       edting_options.textContent = 'Default Text'
-//       edting_options.style.height = '20px'
-//       edting_options.style.wdith = '20px'
-//       edting_options.style.backgroundColor = 'yellow'
-
-
-
-// const logo_block = document.createElement('div')
-//       logo_block.className = 'logo_block'
-//       logo_block.textContent = 'Default Text'
-//       logo_block.style.height = '20px'
-//       logo_block.style.wdith = '20px'
-//       logo_block.style.backgroundColor = 'purple'
-
-// // appendning
-// header.appendChild(profile_block)
-// header.appendChild(edting_options)
-// header.appendChild(logo_block)
-
 
 
 // content
@@ -68,8 +12,8 @@ const project_container = document.createElement('div')
 
 content.appendChild(project_container)
 
-const main_form = document.createElement('form') 
-main_form.id = 'main_form'
+const task_container = document.createElement('form') 
+task_container.id = 'task_container'
 
 
 
@@ -117,10 +61,10 @@ let  to_do_list = document.createElement('ol')
 
 
 // appending
-main_form.appendChild(search_bar)
-main_form.appendChild(submit_search_bar)
-main_form.appendChild(make_a_new_task)
-main_form.appendChild(new_task_btn)
+     task_container.appendChild(search_bar)
+     task_container.appendChild(submit_search_bar)
+     task_container.appendChild(make_a_new_task)
+     task_container.appendChild(new_task_btn)
 
 
 // footer

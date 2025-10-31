@@ -85,12 +85,14 @@ export class Project extends Task{
             open_button.addEventListener('click', ()=>{
                // Focus here before learning how to use the localStorage
 
-               let project_container = document.getElementById('project_container')
+               let make_base = document.getElementById('make_base')
+               make_base.classList = 'hide'
 
-               project_container.classList = 'hide'
+               let make_project_button = document.getElementById('make_project')
+               make_project_button.classList = 'hide'
 
 
-               let main_form = document.getElementById('main_form')
+               let task_container = document.getElementById('task_containers')
 
             })
             content_element.appendChild(this.make_an_element(title))
@@ -107,15 +109,13 @@ export class Project extends Task{
 
             let create_base = document.getElementById('make_base')
             create_base.appendChild(ol)
-
     }
 
     project_form(){
 
         let create_base = document.getElementById('make_base')
 
-
-      let storage = ['', '', '']
+      let storage = ['', '']
       
       let form = document.createElement('form')
       form.id = 'project_form'

@@ -36,15 +36,10 @@ header{
 #project_container{
   display: flex;
   background-color: #0b204c;
-  /* width:100%;
-  height: 30vh; */
   flex-direction: column;
   align-items: center;
 }
 
-#project_container.hide{
-  display:none;
-}
 
 #make_project{
   background-color:#0b204c;
@@ -52,6 +47,9 @@ header{
   width: 100%;
 }
 
+#make_project.hide{
+  display: none;
+}
 
 #make_base{
   background-color:#0b204c;
@@ -62,6 +60,9 @@ header{
 }
 
 
+#make_base.hide{
+  display:none;
+}
 
 #project_content{
   background-color: #0b204c;
