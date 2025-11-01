@@ -65,6 +65,7 @@ let  to_do_list = document.createElement('ol')
      task_container.appendChild(submit_search_bar)
      task_container.appendChild(make_a_new_task)
      task_container.appendChild(new_task_btn)
+     task_container.appendChild(to_do_list)
 
 
 // footer
