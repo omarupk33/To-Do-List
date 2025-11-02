@@ -12,9 +12,8 @@ const project_container = document.createElement('div')
 
 content.appendChild(project_container)
 
-const task_container = document.createElement('form') 
+const task_container = document.createElement('div') 
 task_container.id = 'task_container'
-
 
 
 //  Search Bar
@@ -60,11 +59,16 @@ let  to_do_list = document.createElement('ol')
      to_do_list.style.background = '#10466f'
 
 
+     const tool_container = document.createElement('div')
+     tool_container.id = 'tool_container'
+
 // appending
-     task_container.appendChild(search_bar)
-     task_container.appendChild(submit_search_bar)
-     task_container.appendChild(make_a_new_task)
-     task_container.appendChild(new_task_btn)
+     tool_container.appendChild(search_bar)
+     tool_container.appendChild(submit_search_bar)
+     tool_container.appendChild(make_a_new_task)
+     tool_container.appendChild(new_task_btn)
+     
+     task_container.appendChild(tool_container)
      task_container.appendChild(to_do_list)
 
 
@@ -84,11 +88,13 @@ let project_content = new Project()
 
 new_task_btn.addEventListener('click', ()=>{
       let task1 = new Task().pop_up_form()
-      project_content.appendChild(task1)
+      task_container.appendChild(task1)
 
 })
 
 
 content.appendChild(project_content)
 
-content.appendChild(task_container)
+
+
+// content.appendChild(task_container)

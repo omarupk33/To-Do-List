@@ -82,6 +82,9 @@ export class Project extends Task{
             open_button.id = 'open_button'
             open_button.textContent = 'Open File'
 
+
+            addEventListener('DOMContentLoaded', ()=>{
+
             open_button.addEventListener('click', ()=>{
                // Focus here before learning how to use the localStorage
 
@@ -91,12 +94,20 @@ export class Project extends Task{
                let make_project_button = document.getElementById('make_project')
                make_project_button.classList = 'hide'
 
-               let content = document.getElementById('project_content')
+               
+               let content = document.querySelector('.content')
                let task_container = document.getElementById('task_container')
 
+
+               // Here, this is something wrong occuring here
                content.appendChild(task_container)
+            })
+
+
 
             })
+
+
             content_element.appendChild(this.make_an_element(title))
             content_element.appendChild(date_element)
 
