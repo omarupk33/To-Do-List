@@ -89,7 +89,6 @@ header{
   width: 400px;
 }
 
-
 #task_container{
 display: flex;
 flex-direction: column;
@@ -97,6 +96,9 @@ background-color: #0b204c;
 align-items: center;
 }
 
+#task_container.hide{
+  display: none;
+}
 
 #task_form > .block{
   display: flex;

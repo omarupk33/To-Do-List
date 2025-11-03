@@ -36,7 +36,7 @@ export class Task{
       // Need some work after getting a real storage
       let close_btn = document.createElement('button')
       close_btn.textContent = 'close'
-      close_btn.style.background = 'red'
+      close_btn.style.background = '#ff6417ff'
       close_btn.type = 'button'
       close_btn.id  = 'close_btn' 
 
@@ -63,7 +63,7 @@ export class Task{
           event.preventDefault();
 
       if(event.target.value.trim() === '' && event.target.required === true){
-         event.target.style.backgroundColor = 'red'}
+         event.target.style.backgroundColor = '#ff6417ff'}
       else{
 
          if(event.target.type !== 'button'){

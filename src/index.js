@@ -6,6 +6,7 @@ import { Project } from './projects.js';
 
 // content
 const content = document.querySelector('.content')
+      content.id = 'content'
 
 const project_container = document.createElement('div')
       project_container.id = 'project_container'
@@ -14,6 +15,7 @@ content.appendChild(project_container)
 
 const task_container = document.createElement('div') 
 task_container.id = 'task_container'
+task_container.className = 'hide'
 
 
 //  Search Bar
@@ -21,17 +23,19 @@ const search_bar = document.createElement('label')
       search_bar.style.height = '40px' 
       search_bar.style.width = '40px'
       search_bar.id = 'search_bar'
-      search_bar.for = 'submit_search_bar'
-      search_bar.textContent = 'Search: '
+      search_bar.for = 'go_back_button'
+      search_bar.textContent = 'Go Back: '
 
 // search bar btn
-const submit_search_bar = document.createElement('input')
-      submit_search_bar.style.height = '40px' 
-      submit_search_bar.style.width = '400px'
-      submit_search_bar.style.marginRight = '100px'
-      submit_search_bar.type = 'text'
-      submit_search_bar.id = 'submit_search_bar'
-      submit_search_bar.style.background = '#17A7FF'
+const go_back_button = document.createElement('input')
+      go_back_button.style.height = '40px' 
+      go_back_button.style.width = '400px'
+      go_back_button.style.marginRight = '100px'
+      go_back_button.type = 'button'
+      go_back_button.id = 'go_back_button'
+      go_back_button.style.background = '#ff6417ff'
+
+
 
 
 // A new task label
@@ -64,7 +68,7 @@ let  to_do_list = document.createElement('ol')
 
 // appending
      tool_container.appendChild(search_bar)
-     tool_container.appendChild(submit_search_bar)
+     tool_container.appendChild(go_back_button)
      tool_container.appendChild(make_a_new_task)
      tool_container.appendChild(new_task_btn)
      
@@ -97,4 +101,4 @@ content.appendChild(project_content)
 
 
 
-// content.appendChild(task_container)
+content.appendChild(task_container)
