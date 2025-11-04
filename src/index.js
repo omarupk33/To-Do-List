@@ -8,25 +8,20 @@ import { Project } from './projects.js';
 const content = document.querySelector('.content')
       content.id = 'content'
 
-const project_container = document.createElement('div')
-      project_container.id = 'project_container'
-
-content.appendChild(project_container)
-
 const task_container = document.createElement('div') 
 task_container.id = 'task_container'
 task_container.className = 'hide'
 
 
-//  Search Bar
-const search_bar = document.createElement('label')
-      search_bar.style.height = '40px' 
-      search_bar.style.width = '40px'
-      search_bar.id = 'search_bar'
-      search_bar.for = 'go_back_button'
-      search_bar.textContent = 'Go Back: '
+//  go_back_label
+const go_back = document.createElement('label')
+      go_back.style.height = '40px' 
+      go_back.style.width = '40px'
+      go_back.id = 'go_back'
+      go_back.for = 'go_back_button'
+      go_back.textContent = 'Go Back: '
 
-// search bar btn
+// go_back_button
 const go_back_button = document.createElement('input')
       go_back_button.style.height = '40px' 
       go_back_button.style.width = '400px'
@@ -34,6 +29,11 @@ const go_back_button = document.createElement('input')
       go_back_button.type = 'button'
       go_back_button.id = 'go_back_button'
       go_back_button.style.background = '#ff6417ff'
+
+      go_back_button.addEventListener('click', ()=>{
+            task_container.classList = 'hide'
+            project_content.classList.remove('hide')
+      })
 
 
 
@@ -67,7 +67,7 @@ let  to_do_list = document.createElement('ol')
      tool_container.id = 'tool_container'
 
 // appending
-     tool_container.appendChild(search_bar)
+     tool_container.appendChild(go_back)
      tool_container.appendChild(go_back_button)
      tool_container.appendChild(make_a_new_task)
      tool_container.appendChild(new_task_btn)

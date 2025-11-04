@@ -60,12 +60,13 @@ export class Project extends Task{
 
 
     add_project(title, description){
+      // For some reason, the project file and the tasks are mixed in one container
 
             let content_element = document.createElement('div')
             content_element.id = 'content_element'
 
-            let task_list = document.createElement('li')
-            task_list.className = 'task_list'
+            let project_list = document.createElement('li')
+            project_list.className = 'project_list'
 
             let ol = document.createElement('ol')
 
@@ -76,24 +77,16 @@ export class Project extends Task{
             date_element.textContent = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
 
 
-            let change_content = this.change_btn(task_list)
+            let change_content = this.change_btn(project_list)
 
             let open_button = document.createElement('button')
             open_button.id = 'open_button'
             open_button.textContent = 'Open File'
 
             open_button.addEventListener('click', ()=>{
-               // Focus here before learning how to use the localStorage
 
-               console.log('hey')
+               project_content.classList = 'hide'
 
-               let make_base = document.getElementById('make_base')
-               make_base.classList = 'hide'
-
-               let make_project_button = document.getElementById('make_project')
-               make_project_button.classList = 'hide'
-
-               
                let task_container = document.getElementById('task_container')
                task_container.classList.remove('hide')
          })
@@ -106,10 +99,10 @@ export class Project extends Task{
             content_element.appendChild(change_content)
             content_element.appendChild(open_button)
 
-            task_list.appendChild(content_element)
+            project_list.appendChild(content_element)
 
 
-            ol.appendChild(task_list)
+            ol.appendChild(project_list)
 
             let create_base = document.getElementById('make_base')
             create_base.appendChild(ol)
