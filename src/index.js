@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import './style.css';
-import {Task} from './task.js'
 import { Project } from './projects.js';
 
 

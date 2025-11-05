@@ -14,7 +14,6 @@ export class Project extends Task{
 
         make_project_button.addEventListener('click', ()=>{
             let form = this.project_form()
-
             form.classList = 'active'
         })
 
@@ -57,6 +56,22 @@ export class Project extends Task{
          return change_content
       }
 
+      open_file(){
+
+            let open_button = document.createElement('button')
+            open_button.id = 'open_button'
+            open_button.textContent = 'Open File'
+
+            open_button.addEventListener('click', ()=>{
+
+               project_content.classList = 'hide'
+
+               let task_container = document.getElementById('task_container')
+               task_container.classList.remove('hide')
+         })
+         return open_button
+      }
+
 
 
     add_project(title, description){
@@ -79,17 +94,7 @@ export class Project extends Task{
 
             let change_content = this.change_btn(project_list)
 
-            let open_button = document.createElement('button')
-            open_button.id = 'open_button'
-            open_button.textContent = 'Open File'
-
-            open_button.addEventListener('click', ()=>{
-
-               project_content.classList = 'hide'
-
-               let task_container = document.getElementById('task_container')
-               task_container.classList.remove('hide')
-         })
+            let open_button = this.open_file()
 
 
             content_element.appendChild(this.make_an_element(title))
