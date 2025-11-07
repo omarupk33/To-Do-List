@@ -5,7 +5,7 @@ import { create_input } from "./create_input"
 export class Task{
 
 
-      constructor(number){
+      constructor(){
 
       const task_container = document.createElement('div') 
       task_container.id = 'task_container'
@@ -76,9 +76,9 @@ export class Task{
                   task_container.appendChild(task1)
             })
 
-            let project_content = document.getElementById('project_content') 
+            let content = document.querySelector('.content') 
 
-            project_content.appendChild(task_container)
+            content.appendChild(task_container)
 
       }
 

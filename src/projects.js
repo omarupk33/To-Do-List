@@ -2,15 +2,8 @@ import { add } from "lodash"
 import { create_input } from "./create_input"
 import { Task } from "./task"
 export class Project extends Task{
-
-// Let's try out this sol
-
-   static count = 0
-
     constructor(){
-      this.instanceId = ++Project.count
-
-    super(this.instanceId)
+    super()
 
     const project_content = document.createElement('div')
     project_content.id = 'project_content'
