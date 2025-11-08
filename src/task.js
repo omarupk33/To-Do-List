@@ -69,6 +69,7 @@ export class Task{
             
             task_container.appendChild(tool_container)
             task_container.appendChild(to_do_list)
+            
 
 
             new_task_btn.addEventListener('click', ()=>{
@@ -232,7 +233,7 @@ export class Task{
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
-            let ol = document.getElementById('to_do_container')
+            let to_do_list = document.getElementById('to_do_container')
 
 
             let date = new Date()
@@ -259,7 +260,8 @@ export class Task{
             task_list.appendChild(content_element)
 
 
-            ol.appendChild(task_list)
+            to_do_list.appendChild(task_list)
+
       }
 
 

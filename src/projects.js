@@ -1,9 +1,11 @@
 import { add } from "lodash"
 import { create_input } from "./create_input"
 import { Task } from "./task"
-export class Project extends Task{
+
+export class Project{
     constructor(){
-    super()
+
+      new Task()
 
     const project_content = document.createElement('div')
     project_content.id = 'project_content'
@@ -112,6 +114,18 @@ export class Project extends Task{
             let create_base = document.getElementById('make_base')
             create_base.appendChild(ol)
     }
+
+      make_an_element(content){    
+         let element = document.createElement('p')
+         if(!content.value === false){
+         element.textContent = `${content.value}`
+         }
+
+         else{ element.textContent = `None`}
+         
+               element.className = 'grid_child'
+               return element
+      }
 
     project_form(){
 
