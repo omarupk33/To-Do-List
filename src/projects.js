@@ -1,14 +1,17 @@
 import { add } from "lodash"
 import { create_input } from "./create_input"
+import Task_container from './task_container'
 import { Task } from "./task"
 
 export class Project{
     constructor(){
 
-      new Task()
+      new Task() 
+
 
     const project_content = document.createElement('div')
     project_content.id = 'project_content'
+
 
     let make_project_button = document.createElement('button')
         make_project_button.id = 'make_project'
