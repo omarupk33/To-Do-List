@@ -22,7 +22,7 @@ export function task_container(){
         go_back_button.style.background = '#ff6417ff'
 
         go_back_button.addEventListener('click', ()=>{
-                project_content.getElementById('project_container')
+                let project_content = document.getElementById('project_content')
                 task_container.classList = 'hide'
                 project_content.classList.remove('hide')
         })

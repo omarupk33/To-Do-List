@@ -5,7 +5,6 @@ import { create_input } from "./create_input"
 export class Task{
 
 
-
       create_form(){
       let storage = ['', '', '']
       
@@ -199,4 +198,6 @@ export class Task{
             pop_up_container.appendChild(form)
             return pop_up_container
       }
+
+
 }

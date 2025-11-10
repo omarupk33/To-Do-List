@@ -1,13 +1,9 @@
 import { add } from "lodash"
 import { create_input } from "./create_input"
-import Task_container from './task_container'
-import { Task } from "./task"
+
 
 export class Project{
     constructor(){
-
-      new Task() 
-
 
     const project_content = document.createElement('div')
     project_content.id = 'project_content'
@@ -148,7 +144,6 @@ export class Project{
       submit_button.id = 'save_btn'
 
 
-      // Need some work after getting a real storage
       let close_btn = document.createElement('button')
       close_btn.textContent = 'close'
       close_btn.style.background = '#ff6417ff'
@@ -220,5 +215,6 @@ export class Project{
 
       return form
     }
+
 
 }

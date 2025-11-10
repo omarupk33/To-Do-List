@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import { Project } from './projects.js';
+import { task_container } from './task_container.js';
 
 
 // content
@@ -21,11 +22,15 @@ footer.appendChild(lisence)
 
 
 
+
 // Project 
 let project_content = new Project()
 
-
 content.appendChild(project_content)
+
+
+task_container()
+
 }
 
 user_interface()
