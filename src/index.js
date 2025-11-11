@@ -22,10 +22,14 @@ lisence.textContent = 'The Odin Project'
 footer.appendChild(lisence)
 
 
-// new Project()
-
 content.appendChild(project_container())
 
+
+new Project()
+
+
+
+task_container()
 }
 
 user_interface()
