@@ -184,6 +184,8 @@ export class Task{
 
             to_do_list.appendChild(task_list)
 
+            return to_do_list
+
       }
 
 

@@ -2,6 +2,7 @@ import _ from 'lodash';
 import './style.css';
 import { Project } from './projects.js';
 import { task_container } from './task_container.js';
+import { project_container } from "./project_container"
 
 
 // content
@@ -21,15 +22,9 @@ lisence.textContent = 'The Odin Project'
 footer.appendChild(lisence)
 
 
+// new Project()
 
-
-// Project 
-let project_content = new Project()
-
-content.appendChild(project_content)
-
-
-task_container()
+content.appendChild(project_container())
 
 }
 
