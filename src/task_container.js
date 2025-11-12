@@ -45,7 +45,7 @@ export function task_container(){
         new_task_btn.style.border = 'white solid 2px'
 
         // Main list of tasks
-        let  to_do_list = document.createElement('ol')
+        let  to_do_list = document.createElement('div')
         to_do_list.style.height = '500px' 
         to_do_list.style.width = '1000px'
         to_do_list.id = 'to_do_container'
@@ -65,11 +65,12 @@ export function task_container(){
         task_container.appendChild(to_do_list)
         
 
+    // Well, I can take this and add the results of it 
 
-        new_task_btn.addEventListener('click', ()=>{
-                let task1 = this.pop_up_form()
-                task_container.appendChild(task1)
-        })
+        // new_task_btn.addEventListener('click', ()=>{
+        //         let task1 = new Task().pop_up_form()
+        //         task_container.appendChild(task1)
+        // })
 
         
         let content = document.getElementById('content')

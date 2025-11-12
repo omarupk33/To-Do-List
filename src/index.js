@@ -1,8 +1,7 @@
-import _ from 'lodash';
-import './style.css';
-import { Project } from './projects.js';
-import { task_container } from './task_container.js';
-import { project_container } from "./project_container"
+import _ from 'lodash'
+import './style.css'
+import { Project } from './projects.js'
+import { project_container } from './project_container'
 
 
 // content
@@ -18,7 +17,7 @@ const lisence = document.createElement('h1')
 lisence.id = 'lisence' 
 lisence.textContent = 'The Odin Project'
 
-// appendning
+// appending
 footer.appendChild(lisence)
 
 
@@ -26,10 +25,6 @@ content.appendChild(project_container())
 
 
 new Project()
-
-
-
-task_container()
 }
 
 user_interface()
