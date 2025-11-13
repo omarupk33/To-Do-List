@@ -1,3 +1,5 @@
+import {Task} from './task'
+
 export function task_container(){
 
     const task_container = document.createElement('div') 
@@ -67,10 +69,10 @@ export function task_container(){
 
     // Well, I can take this and add the results of it 
 
-        // new_task_btn.addEventListener('click', ()=>{
-        //         let task1 = new Task().pop_up_form()
-        //         task_container.appendChild(task1)
-        // })
+        new_task_btn.addEventListener('click', ()=>{
+                let task1 = new Task().pop_up_form()
+                task_container.appendChild(task1)
+        })
 
         
         let content = document.getElementById('content')
