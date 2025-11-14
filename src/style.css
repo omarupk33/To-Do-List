@@ -253,3 +253,12 @@ footer{
 #lisence{
   font-size: 2em;
 }
+
+
+div.open{
+  display: flex;
+}
+
+div.close{
+  display: none;
+}

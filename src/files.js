@@ -11,10 +11,11 @@ export function file_container(file_name){
 
       let file_container = document.createElement('div')
       file_container.id = file_name
-      file_container.classList ='open'
       file_container.style.border = 'solid 2px pink'
       file_container.style.height = '100px'
       file_container.style.width = '200px'
+
+      
 
       // file_container.appendChild()
 

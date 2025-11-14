@@ -43,18 +43,29 @@ export class Project{
          return change_content
       }
 
-      open_file(){
+      open_file(title){
 
             let open_button = document.createElement('button')
             open_button.id = 'open_button'
             open_button.textContent = 'Open File'
 
             open_button.addEventListener('click', ()=>{
-
                project_content.classList = 'hide'
-
                let task_container = document.getElementById('task_container')
                task_container.classList.remove('hide')
+
+               const open_file = document.getElementById(title);
+               const parent_element = open_file.parentElement;
+               const all_files = parent_element.children;
+
+               open_file.className = 'open'
+
+               for (let i = 0; i < all_files.length; i++) {
+                  const currentChild = all_files[i];
+                  if (currentChild !== open_file) {
+                     currentChild.classList.add('close');
+                  }
+               }
          })
          return open_button
       }
@@ -62,6 +73,8 @@ export class Project{
 
 
     add_project(title, description){
+
+            file_container(title.value)
 
             let content_element = document.createElement('div')
             content_element.id = 'content_element'
@@ -80,7 +93,7 @@ export class Project{
 
             let change_content = this.change_btn(project_list)
 
-            let open_button = this.open_file()
+            let open_button = this.open_file(title.value)
 
 
             content_element.appendChild(this.make_an_element(title))
@@ -90,8 +103,6 @@ export class Project{
             content_element.appendChild(change_content)
             content_element.appendChild(open_button)
 
-
-            file_container(title)
 
             project_list.appendChild(content_element)
 
