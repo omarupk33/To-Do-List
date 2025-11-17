@@ -11,12 +11,15 @@ export function file_container(file_name){
       file_container.style.height = '100px'
       file_container.style.width = '200px'
 
-      // Last part
+      // Last part is difficult
 
-//       if (file_container.classList.contains('open')){
-//       let ordered_list = document.getElementById('to_do_container')
-//       file_container.appendChild(ordered_list)
-// }
+      if (file_container.classList.contains('open')) {
+    let ordered_list = file_container.querySelector('.content_element');
+    if (ordered_list) {
+        file_container.appendChild(ordered_list);
+    }
+}
+
 
       let container= document.getElementById('to_do_container')
       container.appendChild(file_container)
