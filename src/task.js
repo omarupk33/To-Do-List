@@ -155,8 +155,6 @@ export class Task{
             let task_list = document.createElement('li')
             task_list.className = 'task_list'
 
-            let to_do_list = document.getElementById('to_do_container')
-
 
             let date = new Date()
 
@@ -181,10 +179,9 @@ export class Task{
 
             task_list.appendChild(content_element)
 
-
-            to_do_list.appendChild(task_list)
-
-            return to_do_list
+            // Maybe file is not called so it refuses to add it there
+            // let to_do_list = document.querySelector('#list_of_task.on_show')
+            // to_do_list.appendChild(task_list)
 
       }
 
