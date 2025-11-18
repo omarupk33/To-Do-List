@@ -259,10 +259,6 @@ div.open{
   display: flex;
 }
 
-div.close{
+/* div.close{
   display: none;
-}
-
-#list_of_task.on_show{
-  display: flex;
-}
+} */

@@ -180,8 +180,10 @@ export class Task{
             task_list.appendChild(content_element)
 
             // Maybe file is not called so it refuses to add it there
-            // let to_do_list = document.querySelector('#list_of_task.on_show')
-            // to_do_list.appendChild(task_list)
+            let to_do_list = document.querySelector('.open_list')
+
+
+            to_do_list.appendChild(task_list)
 
       }
 

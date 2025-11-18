@@ -46,12 +46,6 @@ export function task_container(){
         new_task_btn.style.background = 'black'
         new_task_btn.style.border = 'white solid 2px'
 
-        // Main list of tasks
-        let  to_do_list = document.createElement('div')
-        to_do_list.style.height = '500px' 
-        to_do_list.style.width = '1000px'
-        to_do_list.id = 'to_do_container'
-        to_do_list.style.background = '#10466f'
 
 
         const tool_container = document.createElement('div')
@@ -64,7 +58,6 @@ export function task_container(){
         tool_container.appendChild(new_task_btn)
         
         task_container.appendChild(tool_container)
-        task_container.appendChild(to_do_list)
         
 
     // Well, I can take this and add the results of it 

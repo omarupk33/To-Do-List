@@ -54,16 +54,20 @@ export class Project{
                let task_container = document.getElementById('task_container')
                task_container.classList.remove('hide')
 
+               // I'm almost there 
+
                const open_file = document.getElementById(title);
                const parent_element = open_file.parentElement;
                const all_files = parent_element.children;
 
-               open_file.className = 'open'
-
                for (let i = 0; i < all_files.length; i++) {
                   const currentChild = all_files[i];
-                  if (currentChild !== open_file) {
-                     currentChild.classList.add('close');
+                  if (currentChild !== open_file && !currentChild.classList.contains('file') ) {
+                     if (currentChild.classList.contains('open')){
+                        currentChild.remove('open')
+                        currentChild.classList.add('close');
+                     }
+                     else{ open_file.className = 'open'}
                   }
                }
          })
