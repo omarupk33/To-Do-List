@@ -179,12 +179,10 @@ export class Task{
 
             task_list.appendChild(content_element)
 
-            // Maybe file is not called so it refuses to add it there
-            let to_do_list = document.querySelector('.open_list')
+            let firstList_parent = document.querySelector('.file.open');
 
-
-            to_do_list.appendChild(task_list)
-
+            firstList_parent.appendChild(task_list)
+            
       }
 
 

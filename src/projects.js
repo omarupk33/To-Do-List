@@ -54,22 +54,26 @@ export class Project{
                let task_container = document.getElementById('task_container')
                task_container.classList.remove('hide')
 
-               // I'm almost there 
+                           // I'm almost there 
+            let all_files = document.querySelectorAll('.file');
+            let current_file = document.getElementById(title);
 
-               const open_file = document.getElementById(title);
-               const parent_element = open_file.parentElement;
-               const all_files = parent_element.children;
+            for (let i = 0; i < all_files.length; i++) {
 
-               for (let i = 0; i < all_files.length; i++) {
-                  const currentChild = all_files[i];
-                  if (currentChild !== open_file && !currentChild.classList.contains('file') ) {
-                     if (currentChild.classList.contains('open')){
-                        currentChild.remove('open')
+               const currentChild = all_files[i];
+
+               if (currentChild.id !== current_file.id) {
+
+                  if (currentChild.classList.contains('open')) {
+                        currentChild.classList.remove('open'); 
                         currentChild.classList.add('close');
-                     }
-                     else{ open_file.className = 'open'}
                   }
+
                }
+            }
+
+            current_file.classList.remove('close');
+            current_file.classList.add('open');
          })
          return open_button
       }

@@ -135,11 +135,9 @@ textArea{
   background-color: #8298C6;
 }
 
-#to_do_container{
-  overflow-y: scroll;
-  scrollbar-color: #08205F #ffffff;
-  scrollbar-width: thin;
-}
+/* #to_do_container{
+
+} */
 
 
 #content_element{
@@ -255,10 +253,15 @@ footer{
 }
 
 
-div.open{
+ol.open{
   display: flex;
+  flex-direction:column ;
+  overflow-y: scroll;
+
+  scrollbar-color: #08205F #ffffff;
+  scrollbar-width: thin;
 }
 
-/* div.close{
+ol.close{
   display: none;
-} */
+}
